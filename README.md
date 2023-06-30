@@ -1,11 +1,15 @@
 # l1-jet-id
 Code for Level-1 jet tagging 
 
-# Data used in this study.
-Raw: https://zenodo.org/record/3602260#.YnT0xZpBz0o
+## Data
+Raw data: https://zenodo.org/record/3602260#.YnT0xZpBz0o
 
-Preprocessed (pt > 2.0) and kfolded: https://cernbox.cern.ch/s/L714Jx0ENCg8uTd
+Kfolded data (k=10) with each consituent having transverse momentum larger than 2 GeV (pT > 2 GeV): [https://cernbox.cern.ch/s/L714Jx0ENCg8uTd](https://cernbox.cern.ch/s/L714Jx0ENCg8uTd)
 
-Each kfold contains equal class representation.
+The 5 jet classes have equal representation in *each* kfold. The jets in every kfold are shuffled using different seeds. Moreover, the constituents of each jet are shuffled using a different seed.
 
-Should create a zenodo for the preprocessed and kfolded data as well.
+For robust normalisation data, the parameters are:
+```
+x_median: [13.901342868804932, 0.0, 0.0]
+interquantile_range: [119.6879810333252, 0.27309816256165514, 0.27362077757716186]
+```
