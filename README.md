@@ -13,3 +13,16 @@ For robust normalisation data, the parameters are:
 x_median: [13.901342868804932, 0.0, 0.0]
 interquantile_range: [119.6879810333252, 0.27309816256165514, 0.27362077757716186]
 ```
+## K-Folding 
+Consider 5 folds and label them: 1, 2, 3, 4, 5
+
+[1, 2, 3, 4] for training + [5] for validation <- use this one for hyperparameter optimization (HO)
+
+[2, 3, 4, 5] for training + [1] for validation
+
+[3, 4, 5, 1] for training + [2] for validation
+
+[4, 5, 1, 2] for training + [3] for validation
+
+[5, 1, 2, 3] for training + [4] for validation
+
