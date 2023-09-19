@@ -11,11 +11,12 @@ Hyperparameter tuning can be done using this script to find the best hyper-param
 
 
 ## Train all fold model
-After finding the optimal hyperparameter, train all the kfolding models based the found hyperparameter. 
+After finding the optimal hyperparameter, train all the kfolding models based the found hyperparameters. 
 Train all models:
 ```bash
-python train_kfold.py -nmax 8 
+python train_kfold.py -nmax 8 -De xx -NL xx -SE xx
 ```
+
 
 ## Inference/test
 
