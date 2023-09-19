@@ -7,8 +7,11 @@ Train a model with data fold 4 as the validation dataset:
 ```bash
 python train_kfold_single.py -nmax 8 
 ```
+Hyperparameter tuning can be done using this script to find the best hyper-parameters for the model.
+
 
 ## Train all fold model
+After finding the optimal hyperparameter, train all the kfolding models based the found hyperparameter. 
 Train all models:
 ```bash
 python train_kfold.py -nmax 8 
