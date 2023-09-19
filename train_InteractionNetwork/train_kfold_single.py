@@ -108,16 +108,16 @@ interquantile_range_8  = [219, 0.20, 0.20]
 nmax =      args.nmax
 if nmax == 8:
     X_train     = X_train / interquantile_range_8
-    X_val       = X_val      / interquantile_range_8
-    X_test      = X_test      / interquantile_range_8
+    X_val       = X_val   / interquantile_range_8
+    X_test      = X_test  / interquantile_range_8
 elif nmax == 16:
     X_train     = X_train / interquantile_range_16
-    X_val       = X_val      / interquantile_range_8
-    X_test      = X_test      / interquantile_range_16
+    X_val       = X_val   / interquantile_range_32
+    X_test      = X_test  / interquantile_range_16
 elif nmax == 32:
-    X_train = X_train / interquantile_range_32
-    X_val       = X_val      / interquantile_range_8
-    X_test      = X_test      / interquantile_range_32
+    X_train     = X_train / interquantile_range_32
+    X_val       = X_val   / interquantile_range_32
+    X_test      = X_test  / interquantile_range_32
 
 
 # The dataset is N_jets x N_constituents x N_features
@@ -201,7 +201,8 @@ print("Quantization of integer part=", integ)
 inp = Input(shape=(nconstit, nfeat), name="in_layer")
 
 # Batch normalize the inputs
-x = BatchNormalization(name="batchnorm")(inp)
+#x = BatchNormalization(name="batchnorm")(inp)
+x = inp
 
 # Project to edges
 ORr = NodeEdgeProjection(name="proj_1", receiving=True, node_to_edge=True)(x)
@@ -326,7 +327,7 @@ if args.p_en:
     from tensorflow_model_optimization.sparsity import keras as sparsity
     from tensorflow_model_optimization.python.core.sparsity.keras import pruning_callbacks
 
-    NSTEPS = int (( int(len(X_train_val) * 0.3))/args.batch)
+    NSTEPS =   int(len(X_train))  // args.batch
 
     def pruneFunction(layer):
         pruning_params = {
