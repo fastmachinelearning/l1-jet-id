@@ -3,6 +3,7 @@ import os
 import time
 import argparse
 import random
+import sys
 
 import tensorflow as tf
 from tensorflow.keras.models import Model
@@ -23,6 +24,9 @@ from tensorflow_model_optimization.python.core.sparsity.keras import pruning_wra
 
 from node_edge_projection import NodeEdgeProjection
 
+#sys.path.append("..")
+import util.data
+
 # Initiate the parser
 parser = argparse.ArgumentParser()
 parser.add_argument("-nmax", type=int, default=8, help="number of particle")
@@ -39,7 +43,7 @@ parser.add_argument("-acc", type=int, default=0, help="accuracy or loss")
 parser.add_argument("-p_en", type=int, default=0, help="enable train with pruning")
 parser.add_argument("-p_rate", type=float, default=0.5, help="pruning rate")
 parser.add_argument("-seed", type=int, default=1, help="seed")
-parser.add_argument("-TK", type=int, default=4, help="test_kfold")
+parser.add_argument("-VK", type=int, default=4, help="val_kfold")
 args = parser.parse_args()
 
 
@@ -48,19 +52,17 @@ np.random.seed(args.seed)
 tf.random.set_seed(args.seed)
 
 kfolds = 5
-test_kfold = args.TK
-train_kfolds = [kfold for kfold in range(kfolds) if kfold != test_kfold]
+val_kfold = args.VK
+train_kfolds = [kfold for kfold in range(kfolds) if kfold != val_kfold]
 
 nconst = args.nmax
 
 fpath = f'./data_kfold/jets_{nconst}constituents_ptetaphi_nonorm'
 fnames_train = [f'jet_images_c{nconst}_minpt2.0_ptetaphi_nonorm_{train_kfold}'
                      for train_kfold in train_kfolds]
-fname_test = f'jet_images_c{nconst}_minpt2.0_ptetaphi_nonorm_{test_kfold}'
+fname_val = f'jet_images_c{nconst}_minpt2.0_ptetaphi_nonorm_{val_kfold}'
 
-
-import util.data
-data = util.data.Data.load_kfolds(fpath, fnames_train, fname_test)
+data = util.data.Data.load_kfolds(fpath, fnames_train, fname_val)
 print (data.train_data.shape)
 
 
@@ -89,10 +91,12 @@ print (data.train_data.shape)
 #    X, Y, test_size=0.33, random_state=7
 #)
 
-X_train_val = data.train_data
+X_train = data.train_data
+X_val = data.test_data
 X_test = data.test_data
 
-Y_train_val = data.train_target
+Y_train = data.train_target
+Y_val = data.test_target
 Y_test = data.test_target
 
 # nomilization
@@ -103,50 +107,38 @@ interquantile_range_8  = [219, 0.20, 0.20]
 
 nmax =      args.nmax
 if nmax == 8:
-    X_train_val = X_train_val / interquantile_range_8
+    X_train     = X_train / interquantile_range_8
+    X_val       = X_val      / interquantile_range_8
     X_test      = X_test      / interquantile_range_8
 elif nmax == 16:
-    X_train_val = X_train_val / interquantile_range_16
+    X_train     = X_train / interquantile_range_16
+    X_val       = X_val      / interquantile_range_8
     X_test      = X_test      / interquantile_range_16
 elif nmax == 32:
-    X_train_val = X_train_val / interquantile_range_32
+    X_train = X_train / interquantile_range_32
+    X_val       = X_val      / interquantile_range_8
     X_test      = X_test      / interquantile_range_32
 
 
 # The dataset is N_jets x N_constituents x N_features
-njet = X_train_val.shape[0]
-nconstit = X_train_val.shape[1]
-ntargets = Y_train_val.shape[1]
-nfeat = X_train_val.shape[2]
+njet = X_train.shape[0]
+nconstit = X_train.shape[1]
+nfeat = X_train.shape[2]
+
+ntargets = Y_train.shape[1]
 
 print("#jets = ", njet)
 print("#constituents = ", nconstit)
 print("#targets = ", ntargets)
 print("#features = ", nfeat)
 
-print(X_train_val.shape, X_test.shape, Y_train_val.shape, Y_test.shape)
+print(X_train.shape, X_test.shape, Y_train.shape, Y_test.shape)
 
-print(
-    "number of G jets for training/validation: %i"
-    % np.sum(np.argmax(Y_train_val, axis=1) == 0)
-)
-print(
-    "number of Q jets for training/validation: %i"
-    % np.sum(np.argmax(Y_train_val, axis=1) == 1)
-)
-print(
-    "number of W jets for training/validation: %i"
-    % np.sum(np.argmax(Y_train_val, axis=1) == 2)
-)
-print(
-    "number of Z jets for training/validation: %i"
-    % np.sum(np.argmax(Y_train_val, axis=1) == 3)
-)
-print(
-    "number of T jets for training/validation: %i"
-    % np.sum(np.argmax(Y_train_val, axis=1) == 4)
-)
-
+print( f"number of G jets for training/validation: {np.sum(np.argmax(Y_train, axis=1) == 0)}/{np.sum(np.argmax(Y_val, axis=1) == 0)}")
+print( f"number of Q jets for training/validation: {np.sum(np.argmax(Y_train, axis=1) == 1)}/{np.sum(np.argmax(Y_val, axis=1) == 1)}")
+print( f"number of W jets for training/validation: {np.sum(np.argmax(Y_train, axis=1) == 2)}/{np.sum(np.argmax(Y_val, axis=1) == 2)}")
+print( f"number of Z jets for training/validation: {np.sum(np.argmax(Y_train, axis=1) == 3)}/{np.sum(np.argmax(Y_val, axis=1) == 3)}")
+print( f"number of T jets for training/validation: {np.sum(np.argmax(Y_train, axis=1) == 4)}/{np.sum(np.argmax(Y_val, axis=1) == 4)}")
 
 print("number of G jets for testing: %i" % np.sum(np.argmax(Y_test, axis=1) == 0))
 print("number of Q jets for testing: %i" % np.sum(np.argmax(Y_test, axis=1) == 1))
@@ -378,7 +370,7 @@ model.summary()
 from tensorflow.keras.callbacks import EarlyStopping, ModelCheckpoint, ReduceLROnPlateau
 
 
-outputdir = "nconst{}_nbits{}_De{}_Do{}_NL{}_SE{}_SN{}_SG{}_batch{}_acc{}_P{}_Seed{}_TK{}_{}".format(
+outputdir = "nconst{}_nbits{}_De{}_Do{}_NL{}_SE{}_SN{}_SG{}_batch{}_acc{}_P{}_Seed{}_Kfold{}_{}".format(
     nmax,
     nbits,
     De,
@@ -391,7 +383,7 @@ outputdir = "nconst{}_nbits{}_De{}_Do{}_NL{}_SE{}_SN{}_SG{}_batch{}_acc{}_P{}_Se
     args.acc,
     args.p_en,
     args.seed,
-    args.TK,
+    args.VK,
     time.strftime("%Y%m%d-%H%M%S"),
 )
 
@@ -457,14 +449,14 @@ else:
 
 # Train classifier
 history = model.fit(
-    X_train_val,
-    Y_train_val,
+    X_train,
+    Y_train,
     epochs=args.epochs,
     batch_size=args.batch,  # small batch
     verbose=1,
     callbacks=jetid_callbacks,
-    #validation_split=0.3,
-    validation_split=0.2,
+    #validation_split=0.2,
+    validation_data=(X_val, Y_val),
 )
 
 
@@ -486,8 +478,6 @@ y_keras = model.predict(X_test)
 accuracy_keras = float(
     accuracy_score(np.argmax(Y_test, axis=1), np.argmax(y_keras, axis=1))
 )
-
-
 
 accs = np.zeros(3)
 accs[0] = accuracy_keras
