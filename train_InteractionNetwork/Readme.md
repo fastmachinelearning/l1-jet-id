@@ -1,11 +1,34 @@
+# kfolding training
+## data loading
+Please have a try of example_kfold_data_load.ipynb
 
-# Prepare the dataset
+## Train models
+Train a model with data fold 4 as the validation dataset: 
+```bash
+python train_kfold_single.py -nmax 8 
+```
+
+## Train all fold model
+Train all models:
+```bash
+python train_kfold.py -nmax 8 
+```
+
+## Inference/test
+
+Please try test_kfold.ipynb
+
+
+
+# non kfolding training
+
+## Prepare the dataset
 ```bash
 python create_dataset.py
 ```
 It create two .npy files with 150 particles. 
 
-# Train models
+## Train models
 ```bash
 python train.py -nmax 16 -De 8 -NL 0 -SE 0
 ```
