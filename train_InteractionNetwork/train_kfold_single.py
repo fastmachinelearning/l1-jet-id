@@ -112,7 +112,7 @@ if nmax == 8:
     X_test      = X_test  / interquantile_range_8
 elif nmax == 16:
     X_train     = X_train / interquantile_range_16
-    X_val       = X_val   / interquantile_range_32
+    X_val       = X_val   / interquantile_range_16
     X_test      = X_test  / interquantile_range_16
 elif nmax == 32:
     X_train     = X_train / interquantile_range_32
