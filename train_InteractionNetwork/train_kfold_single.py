@@ -44,6 +44,7 @@ parser.add_argument("-p_en", type=int, default=0, help="enable train with prunin
 parser.add_argument("-p_rate", type=float, default=0.5, help="pruning rate")
 parser.add_argument("-seed", type=int, default=1, help="seed")
 parser.add_argument("-VK", type=int, default=4, help="val_kfold")
+parser.add_argument("-nbits", type=int, default=8, help="number of bits")
 args = parser.parse_args()
 
 
@@ -178,7 +179,7 @@ Dr = 0
 Dx = 0
 
 # Quantized bits
-nbits = 8
+nbits = args.nbits
 integ = 0
 
 # Set QKeras quantizer and activation
