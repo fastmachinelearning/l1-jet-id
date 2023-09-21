@@ -49,7 +49,7 @@ parser.add_argument("-acc", type=int, default=0, help="accuracy or loss")
 parser.add_argument("-p_en", type=int, default=0, help="enable train with pruning")
 parser.add_argument("-p_rate", type=float, default=0.5, help="pruning rate")
 parser.add_argument("-seed", type=int, default=1, help="seed")
-parser.add_argument("-TK", type=int, default=4, help="test_kfold")
+parser.add_argument("-nbits", type=int, default=8, help="number of bits")
 args = parser.parse_args()
 
 
@@ -66,7 +66,6 @@ for i in range (kfolds):
     print("train kfold num:", i)
     val_kfold = i 
 
-    #test_kfold = args.TK
     train_kfolds = [kfold for kfold in range(kfolds) if kfold != val_kfold]
 
 
@@ -100,16 +99,16 @@ for i in range (kfolds):
     
     if nmax == 8:
         X_train     = X_train / interquantile_range_8
-        X_val       = X_val      / interquantile_range_8
-        X_test      = X_test      / interquantile_range_8
+        X_val       = X_val   / interquantile_range_8
+        X_test      = X_test  / interquantile_range_8
     elif nmax == 16:
         X_train     = X_train / interquantile_range_16
-        X_val       = X_val      / interquantile_range_8
-        X_test      = X_test      / interquantile_range_16
+        X_val       = X_val   / interquantile_range_16
+        X_test      = X_test  / interquantile_range_16
     elif nmax == 32:
-        X_train = X_train / interquantile_range_32
-        X_val       = X_val      / interquantile_range_8
-        X_test      = X_test      / interquantile_range_32
+        X_train     = X_train / interquantile_range_32
+        X_val       = X_val   / interquantile_range_32
+        X_test      = X_test  / interquantile_range_32
     
     
     # The dataset is N_jets x N_constituents x N_features
@@ -156,7 +155,7 @@ for i in range (kfolds):
     Dx = 0
 
     # Quantized bits
-    nbits = 8
+    nbits = args.nbits
     integ = 0
 
     # Set QKeras quantizer and activation
@@ -305,7 +304,8 @@ for i in range (kfolds):
         from tensorflow_model_optimization.sparsity import keras as sparsity
         from tensorflow_model_optimization.python.core.sparsity.keras import pruning_callbacks
     
-        NSTEPS = int (( int(len(X_train_val) * 0.3))/args.batch)
+        #NSTEPS = int (( int(len(X_train_val) * 0.3))/args.batch)
+        NSTEPS =   int(len(X_train))  // args.batch
     
         def pruneFunction(layer):
             pruning_params = {
@@ -347,7 +347,7 @@ for i in range (kfolds):
     model.summary()
     
     if(i==0):
-        outputdir = "nconst{}_nbits{}_De{}_Do{}_NL{}_SE{}_SN{}_SG{}_batch{}_acc{}_P{}_Seed{}_Kfold_{}".format(
+        outputdir = "nconst{}_nbits{}_De{}_Do{}_NL{}_SE{}_SN{}_SG{}_batch{}_acc{}_P{}_Seed{}_KfoldAll_{}".format(
             nmax,
             nbits,
             De,
