@@ -166,7 +166,7 @@ for key, value in kfold_metrics.items():
     avg_metrics.update(
         {f"{key}": np.mean(value, axis=0), f"{key}_errs": np.std(value, axis=0)}
     )
-variance_fats = np.var(kfold_metrics['fats'])
+variance_fats = np.var(kfold_metrics['fats'], axis=0)
 
 roc_uncert_plot_data = avg_metrics.copy()
 del roc_uncert_plot_data['accs']
