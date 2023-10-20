@@ -1,0 +1,18 @@
+name: hls4ml-l1jetid
+channels:
+  - conda-forge
+dependencies:
+  - python=3.8
+  - jupyterhub
+  - pydot
+  - graphviz
+  - pip
+  - pip:
+    - jupyter
+    - tensorflow==2.8
+    - git+https://github.com/jmduarte/hls4ml.git@split_pointwise_conv_by_rf_rebase_latest#egg=hls4ml[profiling]
+    - git+https://github.com/google/qkeras.git#egg=qkeras
+    - scikit-learn
+    - uproot
+    - zenodo_get
+    - protobuf==3.20.*
