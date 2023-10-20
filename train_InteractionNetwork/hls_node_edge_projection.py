@@ -16,7 +16,7 @@ class HLSNodeEdgeProjection(hls4ml.model.layers.Layer):
         Attribute("node_to_edge", value_type=bool, default=True),
         Attribute("in_width"),
         Attribute("out_width"),
-        TypeAttribute('accum_t'),
+        TypeAttribute('accum'),
     ]
 
     def initialize(self):
