@@ -16,6 +16,7 @@ class HLSNodeEdgeProjection(hls4ml.model.layers.Layer):
         Attribute("node_to_edge", value_type=bool, default=True),
         Attribute("in_width"),
         Attribute("out_width"),
+        TypeAttribute('accum_t'),
     ]
 
     def initialize(self):
@@ -63,6 +64,7 @@ config_template = """struct config{index} : nnet::node_edge_projection_config {{
     static const bool node_to_edge = {node_to_edge};
     static const unsigned in_width = {in_width};
     static const unsigned out_width = {out_width};
+    typedef {accum_t.name} accum_t;
 }};\n"""
 
 function_template = (
