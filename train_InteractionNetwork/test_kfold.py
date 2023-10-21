@@ -12,7 +12,7 @@ from tensorflow.keras.models import Model
 from tensorflow.keras.layers import Input, Concatenate, Flatten, BatchNormalization, Activation
 
 from tensorflow.keras.optimizers import Adam
-from qkeras import QActivation, QDense, QConv1D, QConv2D, quantized_bits
+from qkeras import QActivation, QDense, QConv1D, QConv2D, quantized_bits, ternary
 from qkeras.autoqkeras.utils import print_qmodel_summary
 
 from sklearn.metrics import accuracy_score
@@ -115,6 +115,7 @@ for i in range (kfolds):
             "QConv1D": QConv1D,
             "QConv2D": QConv2D,
             "quantized_bits": quantized_bits,
+            "ternary": ternary,
             #"GarNet": GarNet,
             "NodeEdgeProjection": NodeEdgeProjection,
             "PruneLowMagnitude": pruning_wrapper.PruneLowMagnitude,
