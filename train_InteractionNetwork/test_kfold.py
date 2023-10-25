@@ -148,6 +148,7 @@ for i in range (kfolds):
     for key in model_kfold_metrics.keys():
         kfold_metrics[key].append(model_kfold_metrics[key])
         
+model.summary()
     
 print("inference done")    
 
