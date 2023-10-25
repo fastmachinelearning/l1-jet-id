@@ -211,7 +211,7 @@ ORs = NodeEdgeProjection(name="proj_2", receiving=False, node_to_edge=True)(x)
 #ORr = NodeEdgeProjection(name="proj_1", receiving=True, node_to_edge=True)(inp)
 #ORs = NodeEdgeProjection(name="proj_2", receiving=False, node_to_edge=True)(inp)
 
-inp_e = Concatenate(axis=-1)(
+inp_e = Concatenate(axis=-1, name="concatenate")(
     [ORr, ORs]
 )  # Concatenates Or and Os  ( no relations features Ra matrix )
 
@@ -276,7 +276,7 @@ out_e = NodeEdgeProjection(name="proj_3", receiving=True, node_to_edge=False)(ou
 # Nodes MLP ( takes as inputs node features and embeding from edges MLP )
 
 # Concatenate input Node features and Edges MLP output for the Nodes MLP input
-inp_n = Concatenate(axis=-1)(
+inp_n = Concatenate(axis=-1, name="concatenate_1")(
     [x, out_e]
 )  #  Original IN was C = tf.concat([N,x,E], axis=1)
 
@@ -299,7 +299,11 @@ h = QConv1D(
 )(h)
 h = QActivation(qact, name="qrelu_n2")(h)
 h = QConv1D(
-    Do, kernel_size=1, kernel_quantizer=qbits, bias_quantizer=qbits, name="conv1D_n3"
+    Do, 
+    kernel_size=1, 
+    kernel_quantizer=qbits, 
+    bias_quantizer=qbits, 
+    name="conv1D_n3"
 )(h)
 out_n = QActivation(qact, name="qrelu_n3")(h)
 
@@ -369,10 +373,19 @@ else:
 # Model Summary
 model.summary()
 
+
+from keras.utils.layer_utils import count_params
+trainable_count     = count_params(model.trainable_weights)
+non_trainable_count = count_params(model.non_trainable_weights)
+
+print(trainable_count)    
+print(non_trainable_count)
+
+
 from tensorflow.keras.callbacks import EarlyStopping, ModelCheckpoint, ReduceLROnPlateau
 
 
-outputdir = "nconst{}_nbits{}_De{}_Do{}_NL{}_SE{}_SN{}_SG{}_batch{}_acc{}_P{}_Seed{}_Kfold{}_{}".format(
+outputdir = "nconst{}_nbits{}_De{}_Do{}_NL{}_SE{}_SN{}_SG{}_batch{}_acc{}_P{}_Seed{}_PRMT{}_Kfold{}_{}".format(
     nmax,
     nbits,
     De,
@@ -385,6 +398,7 @@ outputdir = "nconst{}_nbits{}_De{}_Do{}_NL{}_SE{}_SN{}_SG{}_batch{}_acc{}_P{}_Se
     args.acc,
     args.p_en,
     args.seed,
+    trainable_count,
     args.VK,
     time.strftime("%Y%m%d-%H%M%S"),
 )

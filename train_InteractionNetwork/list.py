@@ -8,7 +8,7 @@ list_dir = os.listdir('./')
 b = []
 
 for mname in list_dir:
-    if (mname.split("_")[0] is 'nconst32' or 'nconst16' or 'nconst8'):
+    if (mname.split("_")[0] == 'nconst32' or 'nconst16' or 'nconst8'):
         if (os.path.isfile('{}/acc.txt'.format(mname))):
             a = np.loadtxt('{}/acc.txt'.format(mname))
             b.append([a[0], mname.split("_"), 'p_rate:{}'.format(a[1])])

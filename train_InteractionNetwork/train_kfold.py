@@ -15,7 +15,7 @@ from tensorflow.keras.layers import (
     Activation,
 )
 from tensorflow.keras.optimizers import Adam
-from qkeras import QActivation, QDense, QConv1D, QConv2D, quantized_bits
+from qkeras import QActivation, QDense, QConv1D, QConv2D, quantized_bits, ternary
 from qkeras.autoqkeras.utils import print_qmodel_summary
 
 from sklearn.metrics import accuracy_score
@@ -50,6 +50,7 @@ parser.add_argument("-p_en", type=int, default=0, help="enable train with prunin
 parser.add_argument("-p_rate", type=float, default=0.5, help="pruning rate")
 parser.add_argument("-seed", type=int, default=1, help="seed")
 parser.add_argument("-nbits", type=int, default=8, help="number of bits")
+parser.add_argument("-hs", type=int, default=0, help="hyperparameter search")
 args = parser.parse_args()
 
 
@@ -61,10 +62,19 @@ kfolds = 5
 nmax = args.nmax
 accuracy_keras = []
 
+if(args.hs==1):
+    kfolds_loop = 1
+else:
+    kfolds_loop = kfolds
 
-for i in range (kfolds):
-    print("train kfold num:", i)
-    val_kfold = i 
+
+for i in range (kfolds_loop):
+    if(args.hs==1):
+        print("train kfold num:", 4)
+        val_kfold = 4
+    else:
+        print("train kfold num:", i)
+        val_kfold = i 
 
     train_kfolds = [kfold for kfold in range(kfolds) if kfold != val_kfold]
 
@@ -179,7 +189,8 @@ for i in range (kfolds):
     inp = Input(shape=(nconstit, nfeat), name="in_layer")
     
     # Batch normalize the inputs
-    x = BatchNormalization(name="batchnorm")(inp)
+    #x = BatchNormalization(name="batchnorm")(inp)
+    x = inp
     
     # Project to edges
     ORr = NodeEdgeProjection(name="proj_1", receiving=True, node_to_edge=True)(x)
@@ -187,8 +198,8 @@ for i in range (kfolds):
     #ORr = NodeEdgeProjection(name="proj_1", receiving=True, node_to_edge=True)(inp)
     #ORs = NodeEdgeProjection(name="proj_2", receiving=False, node_to_edge=True)(inp)
     
-    inp_e = Concatenate(axis=-1)(
-        [ORr, ORs]
+    inp_e = Concatenate(axis=-1, name="concatenate")(
+        [ORr, ORs], 
     )  # Concatenates Or and Os  ( no relations features Ra matrix )
     
     # Edges MLP ( takes as inputs nodes features of a fully conected graph edges )
@@ -252,8 +263,8 @@ for i in range (kfolds):
     # Nodes MLP ( takes as inputs node features and embeding from edges MLP )
     
     # Concatenate input Node features and Edges MLP output for the Nodes MLP input
-    inp_n = Concatenate(axis=-1)(
-        [x, out_e]
+    inp_n = Concatenate(axis=-1, name="concatenate_1")(
+        [x, out_e] 
     )  #  Original IN was C = tf.concat([N,x,E], axis=1)
     
     # Define the Nodes MLP layers
@@ -347,21 +358,48 @@ for i in range (kfolds):
     model.summary()
     
     if(i==0):
-        outputdir = "nconst{}_nbits{}_De{}_Do{}_NL{}_SE{}_SN{}_SG{}_batch{}_acc{}_P{}_Seed{}_KfoldAll_{}".format(
-            nmax,
-            nbits,
-            De,
-            Do,
-            NL,
-            scale_e,
-            scale_n,
-            args.SG,
-            args.batch,
-            args.acc,
-            args.p_en,
-            args.seed,
-            time.strftime("%Y%m%d-%H%M%S"),
-        )
+        from keras.utils.layer_utils import count_params
+        trainable_count     = count_params(model.trainable_weights)
+        non_trainable_count = count_params(model.non_trainable_weights)
+        
+        print(trainable_count)    
+        print(non_trainable_count)
+
+        if(args.hs==1):
+            outputdir = "nconst{}_nbits{}_De{}_Do{}_NL{}_SE{}_SN{}_SG{}_batch{}_acc{}_P{}_Seed{}_PRMT{}_KfoldHS_{}".format(
+                nmax,
+                nbits,
+                De,
+                Do,
+                NL,
+                scale_e,
+                scale_n,
+                args.SG,
+                args.batch,
+                args.acc,
+                args.p_en,
+                args.seed,
+                trainable_count,
+                time.strftime("%Y%m%d-%H%M%S"),
+            )
+        else:
+            outputdir = "nconst{}_nbits{}_De{}_Do{}_NL{}_SE{}_SN{}_SG{}_batch{}_acc{}_P{}_Seed{}_PRMT{}_KfoldAll_{}".format(
+                nmax,
+                nbits,
+                De,
+                Do,
+                NL,
+                scale_e,
+                scale_n,
+                args.SG,
+                args.batch,
+                args.acc,
+                args.p_en,
+                args.seed,
+                trainable_count,
+                time.strftime("%Y%m%d-%H%M%S"),
+            )
+
         print("output dir: ", outputdir)
         os.mkdir(outputdir)
 
@@ -443,6 +481,7 @@ for i in range (kfolds):
             "QConv1D": QConv1D,
             "QConv2D": QConv2D,
             "quantized_bits": quantized_bits,
+            "ternary": ternary,
             #"GarNet": GarNet,
             "NodeEdgeProjection": NodeEdgeProjection,
             "PruneLowMagnitude": pruning_wrapper.PruneLowMagnitude,
