@@ -21,7 +21,10 @@ python train_kfold.py -nmax 8 -De xx -NL xx -SE xx
 ## Inference/test
 
 Please try test_kfold.ipynb
-
+or using command:
+```bash
+python test_kfold.py -nmax 8 -mdir [DIR of models]
+```
 
 
 # non kfolding training
