@@ -1,0 +1,61 @@
+#!/usr/bin/env python
+
+# Run the training of the interaction network..
+import argparse
+import os
+import sys
+sys.path.append("..")
+
+from deepsets.hyperparam_optimisation import main
+parser = argparse.ArgumentParser(formatter_class=argparse.
+                                 ArgumentDefaultsHelpFormatter)
+parser.add_argument("--test_kfold", type=int, default=-1,
+                    help="Which kfold to use for test.")
+parser.add_argument("--gpu", type=str, default="",
+                    help="Sets the number of the GPU to run on.")
+args = parser.parse_args()
+
+if args.gpu:
+    os.environ["CUDA_VISIBLE_DEVICES"] = args.gpu
+
+kfolds = 5
+const = 32
+train_kfolds = [kfold for kfold in range(kfolds) if kfold != args.test_kfold]
+data_hyperparams = {
+    "fpath":        f'../../ki_data/jets_{const}constituents_ptetaphi_robust_fast',
+    "fnames_train": [f'jet_images_c{const}_minpt2.0_ptetaphi_robust_fast_{train_kfold}'
+                     for train_kfold in train_kfolds],
+    "fname_test":   f'jet_images_c{const}_minpt2.0_ptetaphi_robust_fast_{args.test_kfold}',
+}
+
+training_hyperparams = {
+    "batch":        [64, 128, 256, 512],
+    "epochs":       150,
+    "lr":           [0.0001, 0.01],
+    "valid_split":  0.2,
+}
+
+compilation_hyperparams = {
+    "optimizer": ['adam'],
+    "loss":      'softmax_with_crossentropy',
+    "metrics":   ['categorical_accuracy'],
+}
+
+model_hyperparams = {
+    "nnodes_phi": [24, 32],
+    "nnodes_rho": [32],
+    "activ": ['relu'],
+}
+
+args = {
+    "study_name":           f'synthable_{const}const_ptetaphi',
+    "storage":              'deepsets_inv',
+    "deepsets_type":        'invariant',
+    "outdir":               'deepsets_hyperopt',
+    "data_hyperparams":     data_hyperparams,
+    "training_hyperparams": training_hyperparams,
+    "model_hyperparams":    model_hyperparams,
+    "compilation":          compilation_hyperparams,
+}
+
+main(args)
