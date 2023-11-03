@@ -1,0 +1,1 @@
+set ::AESL_AUTOSIM::gTopFileName /data/hlssynt-users/deodagiu/ds/bin/trained_deepsets/deepsinv_synthable_6bits_8const_ptetaphi_kfolds/kfold_0/synthesis_final/myproject_prj/solution1/./sim/autowrap/testbench/myproject.cpp_pre.cpp.tb.cpp

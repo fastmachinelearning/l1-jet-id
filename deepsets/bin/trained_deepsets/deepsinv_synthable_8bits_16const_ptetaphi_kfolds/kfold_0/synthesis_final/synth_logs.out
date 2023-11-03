@@ -1,0 +1,272 @@
+
+****** Vivado(TM) HLS - High-Level Synthesis from C, C++ and SystemC v2020.1 (64-bit)
+  **** SW Build 2902540 on Wed May 27 19:54:35 MDT 2020
+  **** IP Build 2902112 on Wed May 27 22:43:36 MDT 2020
+    ** Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+
+source /opt/Xilinx/Vivado/2020.1/scripts/vivado_hls/hls.tcl -notrace
+INFO: [HLS 200-10] Running '/opt/Xilinx/Vivado/2020.1/bin/unwrapped/lnx64.o/vivado_hls'
+INFO: [HLS 200-10] For user 'deodagiu' on host 'olivb-21.cern.ch' (Linux_x86_64 version 3.10.0-1160.62.1.el7.x86_64) on Fri Nov 03 11:02:20 CET 2023
+INFO: [HLS 200-10] In directory '/data/hlssynt-users/deodagiu/ds/bin/trained_deepsets/deepsinv_synthable_8bits_16const_ptetaphi_kfolds/kfold_0/synthesis_final'
+Sourcing Tcl script 'build_prj.tcl'
+INFO: [HLS 200-10] Creating and opening project '/data/hlssynt-users/deodagiu/ds/bin/trained_deepsets/deepsinv_synthable_8bits_16const_ptetaphi_kfolds/kfold_0/synthesis_final/myproject_prj'.
+INFO: [HLS 200-10] Adding design file 'firmware/myproject.cpp' to the project
+INFO: [HLS 200-10] Adding test bench file 'myproject_test.cpp' to the project
+INFO: [HLS 200-10] Adding test bench file 'firmware/weights' to the project
+INFO: [HLS 200-10] Adding test bench file 'tb_data' to the project
+INFO: [HLS 200-10] Creating and opening solution '/data/hlssynt-users/deodagiu/ds/bin/trained_deepsets/deepsinv_synthable_8bits_16const_ptetaphi_kfolds/kfold_0/synthesis_final/myproject_prj/solution1'.
+INFO: [XFORM 203-101] Allowed max sub elements number after partition is 8192.
+INFO: [XFORM 203-1161] The maximum of name length is set into 80.
+INFO: [HLS 200-10] Setting target device to 'xcvu13p-flga2577-2-e'
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 5ns.
+INFO: [SYN 201-201] Setting up clock 'default' with an uncertainty of 0.625ns.
+***** C SIMULATION *****
+INFO: [SIM 211-2] *************** CSIM start ***************
+INFO: [SIM 211-4] CSIM will launch GCC as the compiler.
+   Compiling ../../../../myproject_test.cpp in debug mode
+   Compiling ../../../../firmware/myproject.cpp in debug mode
+   Generating csim.exe
+INFO: Unable to open input/predictions file, using default input.
+0.503906 0.571289 0 0 0.00878906 
+INFO: Saved inference results to file: tb_data/csim_results.log
+INFO: [SIM 211-1] CSim done with 0 errors.
+INFO: [SIM 211-3] *************** CSIM finish ***************
+***** C SIMULATION COMPLETED IN 0h0m12s *****
+***** C/RTL SYNTHESIS *****
+INFO: [SCHED 204-61] Option 'relax_ii_for_timing' is enabled, will increase II to preserve clock frequency constraints.
+INFO: [HLS 200-10] Analyzing design file 'firmware/myproject.cpp' ... 
+WARNING: [HLS 200-40] In file included from firmware/myproject.cpp:1:
+In file included from firmware/myproject.cpp:4:
+In file included from firmware/parameters.h:12:
+In file included from firmware/nnet_utils/nnet_conv1d.h:5:
+firmware/nnet_utils/nnet_conv1d_latency.h:126:51: warning: comparison of unsigned expression < 0 is always false [-Wtautological-compare]
+                if ((ii * CONFIG_T::stride_width) < CONFIG_T::pad_left ||
+                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ ^ ~~~~~~~~~~~~~~~~~~
+firmware/nnet_utils/nnet_conv1d.h:63:17: note: in instantiation of function template specialization 'nnet::pointwise_conv_1d_latency_cl<ap_fixed<12, 4, 0, 0, 0>, ap_fixed<16, 6, 5, 3, 0>, config19>' requested here
+                pointwise_conv_1d_latency_cl<data_T, res_T, CONFIG_T>(data, res, weights, biases);
+                ^
+firmware/myproject.cpp:43:2: note: in instantiation of function template specialization 'nnet::pointwise_conv_1d_cl<ap_fixed<12, 4, 0, 0, 0>, ap_fixed<16, 6, 5, 3, 0>, config19>' requested here
+ nnet::pointwise_conv_1d_cl<input_t, layer19_t, config19>(input_layer, layer19_out, w19, b19);
+ ^
+In file included from firmware/myproject.cpp:1:
+In file included from firmware/myproject.cpp:4:
+In file included from firmware/parameters.h:12:
+In file included from firmware/nnet_utils/nnet_conv1d.h:6:
+firmware/nnet_utils/nnet_conv1d_resource.h:80:31: warning: comparison of unsigned expression >= 0 is always true [-Wtautological-compare]
+                if (i_acc + 1 >= multscale) {
+                    ~~~~~~~~~ ^  ~~~~~~~~~
+firmware/nnet_utils/nnet_conv1d.h:70:9: note: in instantiation of function template specialization 'nnet::conv_1d_resource_cl<ap_fixed<12, 4, 0, 0, 0>, ap_fixed<16, 6, 5, 3, 0>, config19>' requested here
+        conv_1d_resource_cl<data_T, res_T, CONFIG_T>(data, res, weights, biases);
+        ^
+firmware/myproject.cpp:43:2: note: in instantiation of function template specialization 'nnet::pointwise_conv_1d_cl<ap_fixed<12, 4, 0, 0, 0>, ap_fixed<16, 6, 5, 3, 0>, config19>' requested here
+ nnet::pointwise_conv_1d_cl<input_t, layer19_t, config19>(input_layer, layer19_out, w19, b19);
+ ^
+In file included from firmware/myproject.cpp:1:
+In file included from firmware/myproject.cpp:4:
+In file included from firmware/parameters.h:12:
+In file included from firmware/nnet_utils/nnet_conv1d.h:5:
+firmware/nnet_utils/nnet_conv1d_latency.h:126:51: warning: comparison of unsigned expression < 0 is always false [-Wtautological-compare]
+                if ((ii * CONFIG_T::stride_width) < CONFIG_T::pad_left ||
+                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ ^ ~~~~~~~~~~~~~~~~~~
+firmware/nnet_utils/nnet_conv1d.h:63:17: note: in instantiation of function template specialization 'nnet::pointwise_conv_1d_latency_cl<ap_ufixed<8, 0, 0, 0, 0>, ap_fixed<16, 6, 5, 3, 0>, config20>' requested here
+                pointwise_conv_1d_latency_cl<data_T, res_T, CONFIG_T>(data, res, weights, biases);
+                ^
+firmware/myproject.cpp:51:2: note: in instantiation of function template specialization 'nnet::pointwise_conv_1d_cl<ap_ufixed<8, 0, 0, 0, 0>, ap_fixed<16, 6, 5, 3, 0>, config20>' requested here
+ nnet::pointwise_conv_1d_cl<layer4_t, layer20_t, config20>(layer4_out, layer20_out, w20, b20);
+ ^
+In file included from firmware/myproject.cpp:1:
+In file included from firmware/myproject.cpp:4:
+In file included from firmware/parameters.h:12:
+In file included from firmware/nnet_utils/nnet_conv1d.h:5:
+firmware/nnet_utils/nnet_conv1d_latency.h:126:51: warning: comparison of unsigned expression < 0 is always false [-Wtautological-compare]
+                if ((ii * CONFIG_T::stride_width) < CONFIG_T::pad_left ||
+                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ ^ ~~~~~~~~~~~~~~~~~~
+firmware/nnet_utils/nnet_conv1d.h:63:17: note: in instantiation of function template specialization 'nnet::pointwise_conv_1d_latency_cl<ap_ufixed<8, 0, 0, 0, 0>, ap_fixed<16, 6, 5, 3, 0>, config21>' requested here
+                pointwise_conv_1d_latency_cl<data_T, res_T, CONFIG_T>(data, res, weights, biases);
+                ^
+firmware/myproject.cpp:59:2: note: in instantiation of function template specialization 'nnet::pointwise_conv_1d_cl<ap_ufixed<8, 0, 0, 0, 0>, ap_fixed<16, 6, 5, 3, 0>, config21>' requested here
+ nnet::pointwise_conv_1d_cl<layer7_t, layer21_t, config21>(layer7_out, layer21_out, w21, b21);
+ ^
+4 warnings generated.
+WARNING: [HLS 214-113] Either use an argument of the function or declare the variable inside the dataflow loop body: firmware/myproject.cpp:43:85
+WARNING: [HLS 214-113] Either use an argument of the function or declare the variable inside the dataflow loop body: firmware/myproject.cpp:43:90
+WARNING: [HLS 214-113] Either use an argument of the function or declare the variable inside the dataflow loop body: firmware/myproject.cpp:51:85
+WARNING: [HLS 214-113] Either use an argument of the function or declare the variable inside the dataflow loop body: firmware/myproject.cpp:51:90
+WARNING: [HLS 214-113] Either use an argument of the function or declare the variable inside the dataflow loop body: firmware/myproject.cpp:59:85
+WARNING: [HLS 214-113] Either use an argument of the function or declare the variable inside the dataflow loop body: firmware/myproject.cpp:59:90
+WARNING: [HLS 214-113] Either use an argument of the function or declare the variable inside the dataflow loop body: firmware/myproject.cpp:75:72
+WARNING: [HLS 214-113] Either use an argument of the function or declare the variable inside the dataflow loop body: firmware/myproject.cpp:75:77
+WARNING: [HLS 214-113] Either use an argument of the function or declare the variable inside the dataflow loop body: firmware/myproject.cpp:83:72
+WARNING: [HLS 214-113] Either use an argument of the function or declare the variable inside the dataflow loop body: firmware/myproject.cpp:83:77
+WARNING: [HLS 200-471] Dataflow form checks found 10 issue(s) in file firmware/myproject.cpp
+INFO: [HLS 200-111] Finished Linking Time (s): cpu = 00:01:05 ; elapsed = 00:01:10 . Memory (MB): peak = 1528.938 ; gain = 1103.887 ; free physical = 55031 ; free virtual = 90650
+INFO: [HLS 200-111] Finished Checking Pragmas Time (s): cpu = 00:01:05 ; elapsed = 00:01:10 . Memory (MB): peak = 1528.938 ; gain = 1103.887 ; free physical = 55031 ; free virtual = 90650
+INFO: [HLS 200-10] Starting code transformations ...
+INFO: [XFORM 203-603] Inlining function 'nnet::pointwise_conv_1d_latency_cl_split_by_rf<ap_fixed<12, 4, (ap_q_mode)0, (ap_o_mode)0, 0>, ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, config19>' into 'nnet::pointwise_conv_1d_cl<ap_fixed<12, 4, (ap_q_mode)0, (ap_o_mode)0, 0>, ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, config19>' (firmware/nnet_utils/nnet_conv1d.h:60).
+INFO: [XFORM 203-603] Inlining function 'nnet::pointwise_conv_1d_latency_cl_split_by_rf<ap_ufixed<8, 0, (ap_q_mode)0, (ap_o_mode)0, 0>, ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, config20>' into 'nnet::pointwise_conv_1d_cl<ap_ufixed<8, 0, (ap_q_mode)0, (ap_o_mode)0, 0>, ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, config20>' (firmware/nnet_utils/nnet_conv1d.h:60).
+INFO: [XFORM 203-603] Inlining function 'nnet::pointwise_conv_1d_latency_cl_split_by_rf<ap_ufixed<8, 0, (ap_q_mode)0, (ap_o_mode)0, 0>, ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, config21>' into 'nnet::pointwise_conv_1d_cl<ap_ufixed<8, 0, (ap_q_mode)0, (ap_o_mode)0, 0>, ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, config21>' (firmware/nnet_utils/nnet_conv1d.h:60).
+INFO: [XFORM 203-603] Inlining function 'nnet::product::mult<ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, ap_fixed<8, 1, (ap_q_mode)5, (ap_o_mode)3, 0> >::product' into 'nnet::dense_latency<ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, config13>' (firmware/nnet_utils/nnet_dense_latency.h:42).
+INFO: [XFORM 203-603] Inlining function 'nnet::dense<ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, config13>' into 'myproject' (firmware/myproject.cpp:75).
+INFO: [XFORM 203-603] Inlining function 'nnet::product::mult<ap_ufixed<8, 0, (ap_q_mode)0, (ap_o_mode)0, 0>, ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0> >::product' into 'nnet::dense_latency<ap_ufixed<8, 0, (ap_q_mode)0, (ap_o_mode)0, 0>, ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, config16>' (firmware/nnet_utils/nnet_dense_latency.h:42).
+INFO: [XFORM 203-603] Inlining function 'nnet::dense<ap_ufixed<8, 0, (ap_q_mode)0, (ap_o_mode)0, 0>, ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, config16>' into 'myproject' (firmware/myproject.cpp:83).
+INFO: [XFORM 203-603] Inlining function 'nnet::softmax<ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, ap_fixed<16, 6, (ap_q_mode)0, (ap_o_mode)0, 0>, Softmax_config18>' into 'myproject' (firmware/myproject.cpp:85).
+INFO: [HLS 200-111] Finished Standard Transforms Time (s): cpu = 00:01:13 ; elapsed = 00:01:18 . Memory (MB): peak = 1528.938 ; gain = 1103.887 ; free physical = 54906 ; free virtual = 90551
+INFO: [HLS 200-10] Checking synthesizability ...
+INFO: [XFORM 203-602] Inlining function 'fp_struct<double>::mantissa' into 'generic_cast_IEEE754<int, (ap_q_mode)6, double>' (/wrk/2020.1/continuous/2020_05_27_2902540/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_case_IEEE754.h:15) automatically.
+INFO: [XFORM 203-602] Inlining function 'fp_struct<double>::expv' into 'generic_cast_IEEE754<int, (ap_q_mode)6, double>' (/wrk/2020.1/continuous/2020_05_27_2902540/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_case_IEEE754.h:18) automatically.
+INFO: [XFORM 203-602] Inlining function 'fp_struct<double>::__signbit' into 'generic_cast_IEEE754<int, (ap_q_mode)6, double>' (/wrk/2020.1/continuous/2020_05_27_2902540/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_case_IEEE754.h:59) automatically.
+INFO: [XFORM 203-602] Inlining function 'generic_cast_IEEE754<int, (ap_q_mode)6, double>' into 'generic_cast_IEEE754<int, double>' (/wrk/2020.1/continuous/2020_05_27_2902540/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_case_IEEE754.h:117) automatically.
+INFO: [XFORM 203-602] Inlining function 'generic_cast_IEEE754<int, double>' into '__hls_fptosi_double_i32' (/wrk/2020.1/continuous/2020_05_27_2902540/src/products/hls/hls_lib/hlsmath/src/lib_floatconversion.cpp:55) automatically.
+INFO: [XFORM 203-602] Inlining function '__hls_fptosi_double_i32' into 'nnet::pointwise_conv_1d_latency_cl<ap_fixed<12, 4, (ap_q_mode)0, (ap_o_mode)0, 0>, ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, config19>' (firmware/nnet_utils/nnet_conv1d_latency.h:110) automatically.
+INFO: [XFORM 203-602] Inlining function '__hls_fptosi_double_i32' into 'nnet::pointwise_conv_1d_latency_cl<ap_ufixed<8, 0, (ap_q_mode)0, (ap_o_mode)0, 0>, ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, config20>' (firmware/nnet_utils/nnet_conv1d_latency.h:110) automatically.
+INFO: [XFORM 203-602] Inlining function '__hls_fptosi_double_i32' into 'nnet::pointwise_conv_1d_latency_cl<ap_ufixed<8, 0, (ap_q_mode)0, (ap_o_mode)0, 0>, ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, config21>' (firmware/nnet_utils/nnet_conv1d_latency.h:110) automatically.
+INFO: [XFORM 203-602] Inlining function 'nnet::pool_op_limit_1d<config12>' into 'nnet::global_pooling1d_cl<ap_fixed<12, 4, (ap_q_mode)0, (ap_o_mode)0, 0>, ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, config12>' (firmware/nnet_utils/nnet_pooling.h:155) automatically.
+INFO: [XFORM 203-602] Inlining function 'nnet::pool_op<ap_fixed<12, 4, (ap_q_mode)0, (ap_o_mode)0, 0>, 16, (nnet::Pool_Op)1>' into 'nnet::global_pooling1d_cl<ap_fixed<12, 4, (ap_q_mode)0, (ap_o_mode)0, 0>, ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, config12>' (firmware/nnet_utils/nnet_pooling.h:165) automatically.
+INFO: [XFORM 203-602] Inlining function 'nnet::cast<ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, config13>' into 'nnet::dense_latency<ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, config13>' (firmware/nnet_utils/nnet_dense_latency.h:66) automatically.
+INFO: [XFORM 203-602] Inlining function 'nnet::cast<ap_ufixed<8, 0, (ap_q_mode)0, (ap_o_mode)0, 0>, ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, config16>' into 'nnet::dense_latency<ap_ufixed<8, 0, (ap_q_mode)0, (ap_o_mode)0, 0>, ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, config16>' (firmware/nnet_utils/nnet_dense_latency.h:66) automatically.
+INFO: [XFORM 203-602] Inlining function 'nnet::Op_max<ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0> >::operator()' into 'nnet::reduce<ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, 2, nnet::Op_max<ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0> > >' (firmware/nnet_utils/nnet_common.h:44) automatically.
+INFO: [XFORM 203-602] Inlining function 'nnet::reduce<ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, 2, nnet::Op_max<ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0> > >' into 'nnet::reduce<ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, 4, nnet::Op_max<ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0> > >' (firmware/nnet_utils/nnet_common.h:46) automatically.
+INFO: [XFORM 203-602] Inlining function 'nnet::Op_max<ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0> >::operator()' into 'nnet::reduce<ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, 4, nnet::Op_max<ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0> > >' (firmware/nnet_utils/nnet_common.h:46) automatically.
+INFO: [XFORM 203-602] Inlining function 'nnet::reduce<ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, 4, nnet::Op_max<ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0> > >' into 'nnet::reduce<ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, 5, nnet::Op_max<ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0> > >' (firmware/nnet_utils/nnet_common.h:46) automatically.
+INFO: [XFORM 203-602] Inlining function 'nnet::reduce<ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, 1, nnet::Op_max<ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0> > >' into 'nnet::reduce<ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, 5, nnet::Op_max<ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0> > >' (firmware/nnet_utils/nnet_common.h:46) automatically.
+INFO: [XFORM 203-602] Inlining function 'nnet::Op_max<ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0> >::operator()' into 'nnet::reduce<ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, 5, nnet::Op_max<ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0> > >' (firmware/nnet_utils/nnet_common.h:46) automatically.
+INFO: [XFORM 203-602] Inlining function 'nnet::reduce<ap_fixed<18, 8, (ap_q_mode)0, (ap_o_mode)0, 0>, 2, nnet::Op_add<ap_fixed<18, 8, (ap_q_mode)0, (ap_o_mode)0, 0> > >' into 'nnet::reduce<ap_fixed<18, 8, (ap_q_mode)0, (ap_o_mode)0, 0>, 4, nnet::Op_add<ap_fixed<18, 8, (ap_q_mode)0, (ap_o_mode)0, 0> > >' (firmware/nnet_utils/nnet_common.h:46) automatically.
+INFO: [XFORM 203-602] Inlining function 'nnet::reduce<ap_fixed<18, 8, (ap_q_mode)0, (ap_o_mode)0, 0>, 4, nnet::Op_add<ap_fixed<18, 8, (ap_q_mode)0, (ap_o_mode)0, 0> > >' into 'nnet::reduce<ap_fixed<18, 8, (ap_q_mode)0, (ap_o_mode)0, 0>, 5, nnet::Op_add<ap_fixed<18, 8, (ap_q_mode)0, (ap_o_mode)0, 0> > >' (firmware/nnet_utils/nnet_common.h:46) automatically.
+INFO: [XFORM 203-602] Inlining function 'nnet::reduce<ap_fixed<18, 8, (ap_q_mode)0, (ap_o_mode)0, 0>, 1, nnet::Op_add<ap_fixed<18, 8, (ap_q_mode)0, (ap_o_mode)0, 0> > >' into 'nnet::reduce<ap_fixed<18, 8, (ap_q_mode)0, (ap_o_mode)0, 0>, 5, nnet::Op_add<ap_fixed<18, 8, (ap_q_mode)0, (ap_o_mode)0, 0> > >' (firmware/nnet_utils/nnet_common.h:46) automatically.
+INFO: [XFORM 203-602] Inlining function 'nnet::reduce<ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, 5, nnet::Op_max<ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0> > >' into 'nnet::softmax_stable<ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, ap_fixed<16, 6, (ap_q_mode)0, (ap_o_mode)0, 0>, Softmax_config18>' (firmware/nnet_utils/nnet_activation.h:239) automatically.
+INFO: [XFORM 203-602] Inlining function 'nnet::softmax_idx_from_real_val<ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, Softmax_config18>' into 'nnet::softmax_stable<ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, ap_fixed<16, 6, (ap_q_mode)0, (ap_o_mode)0, 0>, Softmax_config18>' (firmware/nnet_utils/nnet_activation.h:254) automatically.
+INFO: [XFORM 203-602] Inlining function 'nnet::reduce<ap_fixed<18, 8, (ap_q_mode)0, (ap_o_mode)0, 0>, 5, nnet::Op_add<ap_fixed<18, 8, (ap_q_mode)0, (ap_o_mode)0, 0> > >' into 'nnet::softmax_stable<ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, ap_fixed<16, 6, (ap_q_mode)0, (ap_o_mode)0, 0>, Softmax_config18>' (firmware/nnet_utils/nnet_activation.h:262) automatically.
+INFO: [XFORM 203-602] Inlining function 'nnet::softmax_idx_from_real_val<ap_fixed<18, 8, (ap_q_mode)0, (ap_o_mode)0, 0>, Softmax_config18>' into 'nnet::softmax_stable<ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, ap_fixed<16, 6, (ap_q_mode)0, (ap_o_mode)0, 0>, Softmax_config18>' (firmware/nnet_utils/nnet_activation.h:265) automatically.
+INFO: [HLS 200-111] Finished Checking Synthesizability Time (s): cpu = 00:01:20 ; elapsed = 00:01:25 . Memory (MB): peak = 1528.938 ; gain = 1103.887 ; free physical = 54853 ; free virtual = 90503
+INFO: [XFORM 203-502] Unrolling all loops for pipelining in function 'nnet::avg<ap_fixed<12, 4, (ap_q_mode)0, (ap_o_mode)0, 0>, 16>' (firmware/nnet_utils/nnet_pooling.h:44:9).
+INFO: [XFORM 203-502] Unrolling all loops for pipelining in function 'nnet::softmax_stable<ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, ap_fixed<16, 6, (ap_q_mode)0, (ap_o_mode)0, 0>, Softmax_config18>' (firmware/nnet_utils/nnet_activation.h:217:11).
+INFO: [XFORM 203-502] Unrolling all loops for pipelining in function 'nnet::dense_latency<ap_ufixed<8, 0, (ap_q_mode)0, (ap_o_mode)0, 0>, ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, config16>' (firmware/nnet_utils/nnet_dense_latency.h:17:48).
+INFO: [XFORM 203-502] Unrolling all loops for pipelining in function 'nnet::relu<ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, ap_ufixed<8, 0, (ap_q_mode)0, (ap_o_mode)0, 0>, relu_config15>' (firmware/nnet_utils/nnet_activation.h:40:13).
+INFO: [XFORM 203-502] Unrolling all loops for pipelining in function 'nnet::dense_latency<ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, config13>' (firmware/nnet_utils/nnet_dense_latency.h:17:48).
+INFO: [XFORM 203-502] Unrolling all loops for pipelining in function 'nnet::global_pooling1d_cl<ap_fixed<12, 4, (ap_q_mode)0, (ap_o_mode)0, 0>, ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, config12>' (firmware/nnet_utils/nnet_pooling.h:149:40).
+INFO: [XFORM 203-502] Unrolling all loops for pipelining in function 'nnet::linear<ap_ufixed<8, 0, (ap_q_mode)0, (ap_o_mode)0, 0>, ap_fixed<12, 4, (ap_q_mode)0, (ap_o_mode)0, 0>, linear_config11>' (firmware/nnet_utils/nnet_activation.h:29:40).
+INFO: [XFORM 203-502] Unrolling all loops for pipelining in function 'nnet::relu<ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, ap_ufixed<8, 0, (ap_q_mode)0, (ap_o_mode)0, 0>, relu_config10>' (firmware/nnet_utils/nnet_activation.h:40:13).
+INFO: [XFORM 203-502] Unrolling all loops for pipelining in function 'nnet::relu<ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, ap_ufixed<8, 0, (ap_q_mode)0, (ap_o_mode)0, 0>, relu_config7>' (firmware/nnet_utils/nnet_activation.h:40:13).
+INFO: [XFORM 203-502] Unrolling all loops for pipelining in function 'nnet::relu<ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, ap_ufixed<8, 0, (ap_q_mode)0, (ap_o_mode)0, 0>, relu_config4>' (firmware/nnet_utils/nnet_activation.h:40:13).
+INFO: [XFORM 203-502] Unrolling all loops for pipelining in function 'nnet::pointwise_conv_1d_latency_cl<ap_ufixed<8, 0, (ap_q_mode)0, (ap_o_mode)0, 0>, ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, config21>' (firmware/nnet_utils/nnet_conv1d_latency.h:94:53).
+INFO: [XFORM 203-502] Unrolling all loops for pipelining in function 'nnet::pointwise_conv_1d_latency_cl<ap_ufixed<8, 0, (ap_q_mode)0, (ap_o_mode)0, 0>, ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, config20>' (firmware/nnet_utils/nnet_conv1d_latency.h:94:53).
+INFO: [XFORM 203-502] Unrolling all loops for pipelining in function 'nnet::pointwise_conv_1d_latency_cl<ap_fixed<12, 4, (ap_q_mode)0, (ap_o_mode)0, 0>, ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, config19>' (firmware/nnet_utils/nnet_conv1d_latency.h:94:53).
+INFO: [HLS 200-489] Unrolling loop 'Loop-1' (firmware/nnet_utils/nnet_pooling.h:45) in function 'nnet::avg<ap_fixed<12, 4, (ap_q_mode)0, (ap_o_mode)0, 0>, 16>' completely with a factor of 16.
+INFO: [HLS 200-489] Unrolling loop 'Loop-1' (firmware/nnet_utils/nnet_activation.h:243) in function 'nnet::softmax_stable<ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, ap_fixed<16, 6, (ap_q_mode)0, (ap_o_mode)0, 0>, Softmax_config18>' completely with a factor of 5.
+INFO: [HLS 200-489] Unrolling loop 'Loop-2' (firmware/nnet_utils/nnet_activation.h:252) in function 'nnet::softmax_stable<ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, ap_fixed<16, 6, (ap_q_mode)0, (ap_o_mode)0, 0>, Softmax_config18>' completely with a factor of 5.
+INFO: [HLS 200-489] Unrolling loop 'Loop-3' (firmware/nnet_utils/nnet_activation.h:266) in function 'nnet::softmax_stable<ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, ap_fixed<16, 6, (ap_q_mode)0, (ap_o_mode)0, 0>, Softmax_config18>' completely with a factor of 5.
+INFO: [HLS 200-489] Unrolling loop 'Product1' (firmware/nnet_utils/nnet_dense_latency.h:37) in function 'nnet::dense_latency<ap_ufixed<8, 0, (ap_q_mode)0, (ap_o_mode)0, 0>, ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, config16>' completely with a factor of 32.
+INFO: [HLS 200-489] Unrolling loop 'Product2' (firmware/nnet_utils/nnet_dense_latency.h:40) in function 'nnet::dense_latency<ap_ufixed<8, 0, (ap_q_mode)0, (ap_o_mode)0, 0>, ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, config16>' completely with a factor of 5.
+INFO: [HLS 200-489] Unrolling loop 'ResetAccum' (firmware/nnet_utils/nnet_dense_latency.h:48) in function 'nnet::dense_latency<ap_ufixed<8, 0, (ap_q_mode)0, (ap_o_mode)0, 0>, ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, config16>' completely with a factor of 5.
+INFO: [HLS 200-489] Unrolling loop 'Accum1' (firmware/nnet_utils/nnet_dense_latency.h:54) in function 'nnet::dense_latency<ap_ufixed<8, 0, (ap_q_mode)0, (ap_o_mode)0, 0>, ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, config16>' completely with a factor of 32.
+INFO: [HLS 200-489] Unrolling loop 'Accum2' (firmware/nnet_utils/nnet_dense_latency.h:56) in function 'nnet::dense_latency<ap_ufixed<8, 0, (ap_q_mode)0, (ap_o_mode)0, 0>, ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, config16>' completely with a factor of 5.
+INFO: [HLS 200-489] Unrolling loop 'Result' (firmware/nnet_utils/nnet_dense_latency.h:64) in function 'nnet::dense_latency<ap_ufixed<8, 0, (ap_q_mode)0, (ap_o_mode)0, 0>, ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, config16>' completely with a factor of 5.
+INFO: [HLS 200-489] Unrolling loop 'Loop-1' (firmware/nnet_utils/nnet_activation.h:43) in function 'nnet::relu<ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, ap_ufixed<8, 0, (ap_q_mode)0, (ap_o_mode)0, 0>, relu_config15>' completely with a factor of 32.
+INFO: [HLS 200-489] Unrolling loop 'Product1' (firmware/nnet_utils/nnet_dense_latency.h:37) in function 'nnet::dense_latency<ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, config13>' completely with a factor of 32.
+INFO: [HLS 200-489] Unrolling loop 'Product2' (firmware/nnet_utils/nnet_dense_latency.h:40) in function 'nnet::dense_latency<ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, config13>' completely with a factor of 32.
+INFO: [HLS 200-489] Unrolling loop 'ResetAccum' (firmware/nnet_utils/nnet_dense_latency.h:48) in function 'nnet::dense_latency<ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, config13>' completely with a factor of 32.
+INFO: [HLS 200-489] Unrolling loop 'Accum1' (firmware/nnet_utils/nnet_dense_latency.h:54) in function 'nnet::dense_latency<ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, config13>' completely with a factor of 32.
+INFO: [HLS 200-489] Unrolling loop 'Accum2' (firmware/nnet_utils/nnet_dense_latency.h:56) in function 'nnet::dense_latency<ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, config13>' completely with a factor of 32.
+INFO: [HLS 200-489] Unrolling loop 'Result' (firmware/nnet_utils/nnet_dense_latency.h:64) in function 'nnet::dense_latency<ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, config13>' completely with a factor of 32.
+INFO: [HLS 200-489] Unrolling loop 'Loop-1' (firmware/nnet_utils/nnet_pooling.h:158) in function 'nnet::global_pooling1d_cl<ap_fixed<12, 4, (ap_q_mode)0, (ap_o_mode)0, 0>, ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, config12>' completely with a factor of 32.
+INFO: [HLS 200-489] Unrolling loop 'Loop-1.1' (firmware/nnet_utils/nnet_pooling.h:161) in function 'nnet::global_pooling1d_cl<ap_fixed<12, 4, (ap_q_mode)0, (ap_o_mode)0, 0>, ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, config12>' completely with a factor of 16.
+INFO: [HLS 200-489] Unrolling loop 'Loop-1' (firmware/nnet_utils/nnet_activation.h:31) in function 'nnet::linear<ap_ufixed<8, 0, (ap_q_mode)0, (ap_o_mode)0, 0>, ap_fixed<12, 4, (ap_q_mode)0, (ap_o_mode)0, 0>, linear_config11>' completely with a factor of 512.
+INFO: [HLS 200-489] Unrolling loop 'Loop-1' (firmware/nnet_utils/nnet_activation.h:43) in function 'nnet::relu<ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, ap_ufixed<8, 0, (ap_q_mode)0, (ap_o_mode)0, 0>, relu_config10>' completely with a factor of 512.
+INFO: [HLS 200-489] Unrolling loop 'RFInputLoop' (firmware/nnet_utils/nnet_conv1d_latency.h:179) in function 'nnet::pointwise_conv_1d_cl<ap_ufixed<8, 0, (ap_q_mode)0, (ap_o_mode)0, 0>, ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, config21>' completely with a factor of 4.
+INFO: [HLS 200-489] Unrolling loop 'InnerInputLoop' (firmware/nnet_utils/nnet_conv1d_latency.h:182) in function 'nnet::pointwise_conv_1d_cl<ap_ufixed<8, 0, (ap_q_mode)0, (ap_o_mode)0, 0>, ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, config21>' completely with a factor of 128.
+INFO: [HLS 200-489] Unrolling loop 'RFOutputLoop' (firmware/nnet_utils/nnet_conv1d_latency.h:428) in function 'nnet::pointwise_conv_1d_cl<ap_ufixed<8, 0, (ap_q_mode)0, (ap_o_mode)0, 0>, ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, config21>' completely with a factor of 4.
+INFO: [HLS 200-489] Unrolling loop 'InnerOutputLoop' (firmware/nnet_utils/nnet_conv1d_latency.h:431) in function 'nnet::pointwise_conv_1d_cl<ap_ufixed<8, 0, (ap_q_mode)0, (ap_o_mode)0, 0>, ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, config21>' completely with a factor of 128.
+INFO: [HLS 200-489] Unrolling loop 'Loop-1' (firmware/nnet_utils/nnet_activation.h:43) in function 'nnet::relu<ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, ap_ufixed<8, 0, (ap_q_mode)0, (ap_o_mode)0, 0>, relu_config7>' completely with a factor of 512.
+INFO: [HLS 200-489] Unrolling loop 'RFInputLoop' (firmware/nnet_utils/nnet_conv1d_latency.h:179) in function 'nnet::pointwise_conv_1d_cl<ap_ufixed<8, 0, (ap_q_mode)0, (ap_o_mode)0, 0>, ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, config20>' completely with a factor of 4.
+INFO: [HLS 200-489] Unrolling loop 'InnerInputLoop' (firmware/nnet_utils/nnet_conv1d_latency.h:182) in function 'nnet::pointwise_conv_1d_cl<ap_ufixed<8, 0, (ap_q_mode)0, (ap_o_mode)0, 0>, ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, config20>' completely with a factor of 128.
+INFO: [HLS 200-489] Unrolling loop 'RFOutputLoop' (firmware/nnet_utils/nnet_conv1d_latency.h:428) in function 'nnet::pointwise_conv_1d_cl<ap_ufixed<8, 0, (ap_q_mode)0, (ap_o_mode)0, 0>, ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, config20>' completely with a factor of 4.
+INFO: [HLS 200-489] Unrolling loop 'InnerOutputLoop' (firmware/nnet_utils/nnet_conv1d_latency.h:431) in function 'nnet::pointwise_conv_1d_cl<ap_ufixed<8, 0, (ap_q_mode)0, (ap_o_mode)0, 0>, ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, config20>' completely with a factor of 128.
+INFO: [HLS 200-489] Unrolling loop 'Loop-1' (firmware/nnet_utils/nnet_activation.h:43) in function 'nnet::relu<ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, ap_ufixed<8, 0, (ap_q_mode)0, (ap_o_mode)0, 0>, relu_config4>' completely with a factor of 512.
+INFO: [HLS 200-489] Unrolling loop 'RFInputLoop' (firmware/nnet_utils/nnet_conv1d_latency.h:179) in function 'nnet::pointwise_conv_1d_cl<ap_fixed<12, 4, (ap_q_mode)0, (ap_o_mode)0, 0>, ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, config19>' completely with a factor of 4.
+INFO: [HLS 200-489] Unrolling loop 'InnerInputLoop' (firmware/nnet_utils/nnet_conv1d_latency.h:182) in function 'nnet::pointwise_conv_1d_cl<ap_fixed<12, 4, (ap_q_mode)0, (ap_o_mode)0, 0>, ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, config19>' completely with a factor of 12.
+INFO: [HLS 200-489] Unrolling loop 'RFOutputLoop' (firmware/nnet_utils/nnet_conv1d_latency.h:428) in function 'nnet::pointwise_conv_1d_cl<ap_fixed<12, 4, (ap_q_mode)0, (ap_o_mode)0, 0>, ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, config19>' completely with a factor of 4.
+INFO: [HLS 200-489] Unrolling loop 'InnerOutputLoop' (firmware/nnet_utils/nnet_conv1d_latency.h:431) in function 'nnet::pointwise_conv_1d_cl<ap_fixed<12, 4, (ap_q_mode)0, (ap_o_mode)0, 0>, ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, config19>' completely with a factor of 128.
+INFO: [HLS 200-489] Unrolling loop 'ConvOut' (firmware/nnet_utils/nnet_conv1d_latency.h:116) in function 'nnet::pointwise_conv_1d_latency_cl<ap_ufixed<8, 0, (ap_q_mode)0, (ap_o_mode)0, 0>, ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, config21>' completely with a factor of 4.
+INFO: [HLS 200-489] Unrolling loop 'ConvFilt' (firmware/nnet_utils/nnet_conv1d_latency.h:118) in function 'nnet::pointwise_conv_1d_latency_cl<ap_ufixed<8, 0, (ap_q_mode)0, (ap_o_mode)0, 0>, ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, config21>' completely with a factor of 32.
+INFO: [HLS 200-489] Unrolling loop 'ConvChan' (firmware/nnet_utils/nnet_conv1d_latency.h:120) in function 'nnet::pointwise_conv_1d_latency_cl<ap_ufixed<8, 0, (ap_q_mode)0, (ap_o_mode)0, 0>, ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, config21>' completely with a factor of 32.
+INFO: [HLS 200-489] Unrolling loop 'Loop-2' (firmware/nnet_utils/nnet_conv1d_latency.h:137) in function 'nnet::pointwise_conv_1d_latency_cl<ap_ufixed<8, 0, (ap_q_mode)0, (ap_o_mode)0, 0>, ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, config21>' completely with a factor of 4.
+INFO: [HLS 200-489] Unrolling loop 'Loop-2.1' (firmware/nnet_utils/nnet_conv1d_latency.h:138) in function 'nnet::pointwise_conv_1d_latency_cl<ap_ufixed<8, 0, (ap_q_mode)0, (ap_o_mode)0, 0>, ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, config21>' completely with a factor of 32.
+INFO: [HLS 200-489] Unrolling loop 'AccumOut' (firmware/nnet_utils/nnet_conv1d_latency.h:146) in function 'nnet::pointwise_conv_1d_latency_cl<ap_ufixed<8, 0, (ap_q_mode)0, (ap_o_mode)0, 0>, ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, config21>' completely with a factor of 4.
+INFO: [HLS 200-489] Unrolling loop 'AccumFilt' (firmware/nnet_utils/nnet_conv1d_latency.h:148) in function 'nnet::pointwise_conv_1d_latency_cl<ap_ufixed<8, 0, (ap_q_mode)0, (ap_o_mode)0, 0>, ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, config21>' completely with a factor of 32.
+INFO: [HLS 200-489] Unrolling loop 'AccumChan' (firmware/nnet_utils/nnet_conv1d_latency.h:151) in function 'nnet::pointwise_conv_1d_latency_cl<ap_ufixed<8, 0, (ap_q_mode)0, (ap_o_mode)0, 0>, ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, config21>' completely with a factor of 32.
+INFO: [HLS 200-489] Unrolling loop 'Loop-4' (firmware/nnet_utils/nnet_conv1d_latency.h:159) in function 'nnet::pointwise_conv_1d_latency_cl<ap_ufixed<8, 0, (ap_q_mode)0, (ap_o_mode)0, 0>, ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, config21>' completely with a factor of 4.
+INFO: [HLS 200-489] Unrolling loop 'Loop-4.1' (firmware/nnet_utils/nnet_conv1d_latency.h:160) in function 'nnet::pointwise_conv_1d_latency_cl<ap_ufixed<8, 0, (ap_q_mode)0, (ap_o_mode)0, 0>, ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, config21>' completely with a factor of 32.
+INFO: [HLS 200-489] Unrolling loop 'ConvOut' (firmware/nnet_utils/nnet_conv1d_latency.h:116) in function 'nnet::pointwise_conv_1d_latency_cl<ap_ufixed<8, 0, (ap_q_mode)0, (ap_o_mode)0, 0>, ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, config20>' completely with a factor of 4.
+INFO: [HLS 200-489] Unrolling loop 'ConvFilt' (firmware/nnet_utils/nnet_conv1d_latency.h:118) in function 'nnet::pointwise_conv_1d_latency_cl<ap_ufixed<8, 0, (ap_q_mode)0, (ap_o_mode)0, 0>, ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, config20>' completely with a factor of 32.
+INFO: [HLS 200-489] Unrolling loop 'ConvChan' (firmware/nnet_utils/nnet_conv1d_latency.h:120) in function 'nnet::pointwise_conv_1d_latency_cl<ap_ufixed<8, 0, (ap_q_mode)0, (ap_o_mode)0, 0>, ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, config20>' completely with a factor of 32.
+INFO: [HLS 200-489] Unrolling loop 'Loop-2' (firmware/nnet_utils/nnet_conv1d_latency.h:137) in function 'nnet::pointwise_conv_1d_latency_cl<ap_ufixed<8, 0, (ap_q_mode)0, (ap_o_mode)0, 0>, ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, config20>' completely with a factor of 4.
+INFO: [HLS 200-489] Unrolling loop 'Loop-2.1' (firmware/nnet_utils/nnet_conv1d_latency.h:138) in function 'nnet::pointwise_conv_1d_latency_cl<ap_ufixed<8, 0, (ap_q_mode)0, (ap_o_mode)0, 0>, ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, config20>' completely with a factor of 32.
+INFO: [HLS 200-489] Unrolling loop 'AccumOut' (firmware/nnet_utils/nnet_conv1d_latency.h:146) in function 'nnet::pointwise_conv_1d_latency_cl<ap_ufixed<8, 0, (ap_q_mode)0, (ap_o_mode)0, 0>, ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, config20>' completely with a factor of 4.
+INFO: [HLS 200-489] Unrolling loop 'AccumFilt' (firmware/nnet_utils/nnet_conv1d_latency.h:148) in function 'nnet::pointwise_conv_1d_latency_cl<ap_ufixed<8, 0, (ap_q_mode)0, (ap_o_mode)0, 0>, ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, config20>' completely with a factor of 32.
+INFO: [HLS 200-489] Unrolling loop 'AccumChan' (firmware/nnet_utils/nnet_conv1d_latency.h:151) in function 'nnet::pointwise_conv_1d_latency_cl<ap_ufixed<8, 0, (ap_q_mode)0, (ap_o_mode)0, 0>, ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, config20>' completely with a factor of 32.
+INFO: [HLS 200-489] Unrolling loop 'Loop-4' (firmware/nnet_utils/nnet_conv1d_latency.h:159) in function 'nnet::pointwise_conv_1d_latency_cl<ap_ufixed<8, 0, (ap_q_mode)0, (ap_o_mode)0, 0>, ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, config20>' completely with a factor of 4.
+INFO: [HLS 200-489] Unrolling loop 'Loop-4.1' (firmware/nnet_utils/nnet_conv1d_latency.h:160) in function 'nnet::pointwise_conv_1d_latency_cl<ap_ufixed<8, 0, (ap_q_mode)0, (ap_o_mode)0, 0>, ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, config20>' completely with a factor of 32.
+INFO: [HLS 200-489] Unrolling loop 'ConvOut' (firmware/nnet_utils/nnet_conv1d_latency.h:116) in function 'nnet::pointwise_conv_1d_latency_cl<ap_fixed<12, 4, (ap_q_mode)0, (ap_o_mode)0, 0>, ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, config19>' completely with a factor of 4.
+INFO: [HLS 200-489] Unrolling loop 'ConvFilt' (firmware/nnet_utils/nnet_conv1d_latency.h:118) in function 'nnet::pointwise_conv_1d_latency_cl<ap_fixed<12, 4, (ap_q_mode)0, (ap_o_mode)0, 0>, ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, config19>' completely with a factor of 32.
+INFO: [HLS 200-489] Unrolling loop 'ConvChan' (firmware/nnet_utils/nnet_conv1d_latency.h:120) in function 'nnet::pointwise_conv_1d_latency_cl<ap_fixed<12, 4, (ap_q_mode)0, (ap_o_mode)0, 0>, ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, config19>' completely with a factor of 3.
+INFO: [HLS 200-489] Unrolling loop 'Loop-2' (firmware/nnet_utils/nnet_conv1d_latency.h:137) in function 'nnet::pointwise_conv_1d_latency_cl<ap_fixed<12, 4, (ap_q_mode)0, (ap_o_mode)0, 0>, ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, config19>' completely with a factor of 4.
+INFO: [HLS 200-489] Unrolling loop 'Loop-2.1' (firmware/nnet_utils/nnet_conv1d_latency.h:138) in function 'nnet::pointwise_conv_1d_latency_cl<ap_fixed<12, 4, (ap_q_mode)0, (ap_o_mode)0, 0>, ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, config19>' completely with a factor of 32.
+INFO: [HLS 200-489] Unrolling loop 'AccumOut' (firmware/nnet_utils/nnet_conv1d_latency.h:146) in function 'nnet::pointwise_conv_1d_latency_cl<ap_fixed<12, 4, (ap_q_mode)0, (ap_o_mode)0, 0>, ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, config19>' completely with a factor of 4.
+INFO: [HLS 200-489] Unrolling loop 'AccumFilt' (firmware/nnet_utils/nnet_conv1d_latency.h:148) in function 'nnet::pointwise_conv_1d_latency_cl<ap_fixed<12, 4, (ap_q_mode)0, (ap_o_mode)0, 0>, ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, config19>' completely with a factor of 32.
+INFO: [HLS 200-489] Unrolling loop 'AccumChan' (firmware/nnet_utils/nnet_conv1d_latency.h:151) in function 'nnet::pointwise_conv_1d_latency_cl<ap_fixed<12, 4, (ap_q_mode)0, (ap_o_mode)0, 0>, ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, config19>' completely with a factor of 3.
+INFO: [HLS 200-489] Unrolling loop 'Loop-4' (firmware/nnet_utils/nnet_conv1d_latency.h:159) in function 'nnet::pointwise_conv_1d_latency_cl<ap_fixed<12, 4, (ap_q_mode)0, (ap_o_mode)0, 0>, ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, config19>' completely with a factor of 4.
+INFO: [HLS 200-489] Unrolling loop 'Loop-4.1' (firmware/nnet_utils/nnet_conv1d_latency.h:160) in function 'nnet::pointwise_conv_1d_latency_cl<ap_fixed<12, 4, (ap_q_mode)0, (ap_o_mode)0, 0>, ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, config19>' completely with a factor of 32.
+INFO: [XFORM 203-102] Partitioning array 'd_xi_xmax.V' (firmware/nnet_utils/nnet_activation.h:242) automatically.
+INFO: [XFORM 203-131] Reshaping array 'input_layer.V' (firmware/myproject.cpp:7) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'layer18_out.V' (firmware/myproject.cpp:8) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'layer19_out.V' (firmware/myproject.cpp:41) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'layer4_out.V' (firmware/myproject.cpp:45) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'layer20_out.V' (firmware/myproject.cpp:49) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'layer7_out.V' (firmware/myproject.cpp:53) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'layer21_out.V' (firmware/myproject.cpp:57) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'layer10_out.V' (firmware/myproject.cpp:61) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'layer11_out.V' (firmware/myproject.cpp:65) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'layer12_out.V' (firmware/myproject.cpp:69) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'layer13_out.V' (firmware/myproject.cpp:73) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'layer15_out.V' (firmware/myproject.cpp:77) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'layer16_out.V' (firmware/myproject.cpp:81) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'data_tmp.V' (firmware/nnet_utils/nnet_conv1d_latency.h:173) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'res_tmp.V' (firmware/nnet_utils/nnet_conv1d_latency.h:175) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'exp_res.V' (firmware/nnet_utils/nnet_activation.h:249) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'b16.V'  in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'mult.V' (firmware/nnet_utils/nnet_dense_latency.h:17) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'acc.V' (firmware/nnet_utils/nnet_dense_latency.h:18) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'b13.V'  in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'mult.V' (firmware/nnet_utils/nnet_dense_latency.h:17) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'acc.V' (firmware/nnet_utils/nnet_dense_latency.h:18) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'pool.V' (firmware/nnet_utils/nnet_pooling.h:159) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'data_tmp.V' (firmware/nnet_utils/nnet_conv1d_latency.h:173) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'res_tmp.V' (firmware/nnet_utils/nnet_conv1d_latency.h:175) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'data_tmp.V' (firmware/nnet_utils/nnet_conv1d_latency.h:173) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'res_tmp.V' (firmware/nnet_utils/nnet_conv1d_latency.h:175) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'mult.V' (firmware/nnet_utils/nnet_conv1d_latency.h:94) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'acc.V' (firmware/nnet_utils/nnet_conv1d_latency.h:95) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'w21.V'  in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'b21.V'  in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'mult.V' (firmware/nnet_utils/nnet_conv1d_latency.h:94) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'acc.V' (firmware/nnet_utils/nnet_conv1d_latency.h:95) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'w20.V'  in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'b20.V'  in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'mult.V' (firmware/nnet_utils/nnet_conv1d_latency.h:94) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'acc.V' (firmware/nnet_utils/nnet_conv1d_latency.h:95) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'w19.V'  in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'b19.V'  in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'data_tmp.V' (firmware/nnet_utils/nnet_conv1d_latency.h:173) in dimension 2 completely.
+INFO: [XFORM 203-101] Partitioning array 'res_tmp.V' (firmware/nnet_utils/nnet_conv1d_latency.h:175) in dimension 2 completely.
+INFO: [XFORM 203-101] Partitioning array 'data_tmp.V' (firmware/nnet_utils/nnet_conv1d_latency.h:173) in dimension 2 completely.
+INFO: [XFORM 203-101] Partitioning array 'res_tmp.V' (firmware/nnet_utils/nnet_conv1d_latency.h:175) in dimension 2 completely.
+INFO: [XFORM 203-101] Partitioning array 'data_tmp.V' (firmware/nnet_utils/nnet_conv1d_latency.h:173) in dimension 2 completely.
+INFO: [XFORM 203-101] Partitioning array 'res_tmp.V' (firmware/nnet_utils/nnet_conv1d_latency.h:175) in dimension 2 completely.
+INFO: [XFORM 203-101] Partitioning array 'acc.V' (firmware/nnet_utils/nnet_conv1d_latency.h:95) in dimension 2 completely.
+INFO: [XFORM 203-101] Partitioning array 'acc.V' (firmware/nnet_utils/nnet_conv1d_latency.h:95) in dimension 2 completely.
+INFO: [XFORM 203-101] Partitioning array 'acc.V' (firmware/nnet_utils/nnet_conv1d_latency.h:95) in dimension 2 completely.
+WARNING: [XFORM 203-104] Completely partitioning array 'data_tmp.V' (firmware/nnet_utils/nnet_conv1d_latency.h:173) accessed through non-constant indices on dimension 1 (firmware/nnet_utils/nnet_conv1d_latency.h:130:40), which may result in long runtime and suboptimal QoR due to large multiplexers. Please consider wrapping the array access into a function or using a register file core instead.
+WARNING: [XFORM 203-104] Completely partitioning array 'res_tmp.V' (firmware/nnet_utils/nnet_conv1d_latency.h:175) accessed through non-constant indices on dimension 1 (firmware/nnet_utils/nnet_conv1d_latency.h:162:2), which may result in long runtime and suboptimal QoR due to large multiplexers. Please consider wrapping the array access into a function or using a register file core instead.
+WARNING: [XFORM 203-104] Completely partitioning array 'data_tmp.V' (firmware/nnet_utils/nnet_conv1d_latency.h:173) accessed through non-constant indices on dimension 1 (firmware/nnet_utils/nnet_conv1d_latency.h:130:40), which may result in long runtime and suboptimal QoR due to large multiplexers. Please consider wrapping the array access into a function or using a register file core instead.
+WARNING: [XFORM 203-104] Completely partitioning array 'res_tmp.V' (firmware/nnet_utils/nnet_conv1d_latency.h:175) accessed through non-constant indices on dimension 1 (firmware/nnet_utils/nnet_conv1d_latency.h:162:2), which may result in long runtime and suboptimal QoR due to large multiplexers. Please consider wrapping the array access into a function or using a register file core instead.
+WARNING: [XFORM 203-104] Completely partitioning array 'res_tmp.V' (firmware/nnet_utils/nnet_conv1d_latency.h:175) accessed through non-constant indices on dimension 1 (firmware/nnet_utils/nnet_conv1d_latency.h:162:2), which may result in long runtime and suboptimal QoR due to large multiplexers. Please consider wrapping the array access into a function or using a register file core instead.

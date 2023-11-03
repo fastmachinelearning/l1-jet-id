@@ -1,0 +1,555 @@
+<profile>
+
+<section name = "Vivado HLS Report for 'pointwise_conv_1d_latency_cl_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_2'" level="0">
+<item name = "Date">Thu Nov  2 21:18:28 2023
+</item>
+<item name = "Version">2020.1 (Build 2897737 on Wed May 27 20:21:37 MDT 2020)</item>
+<item name = "Project">myproject_prj</item>
+<item name = "Solution">solution1</item>
+<item name = "Product family">virtexuplus</item>
+<item name = "Target device">xcvu13p-flga2577-2-e</item>
+</section>
+
+<section name = "Performance Estimates" level="0">
+<item name = "Timing">
+<section name = "" level="1">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="4">Clock, Target, Estimated, Uncertainty</keys>
+<column name="ap_clk">5.00 ns, 2.335 ns, 0.62 ns</column>
+</table>
+</item>
+</section>
+</item>
+<item name = "Latency">
+<section name = "" level="1">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="8">, min, max, min, max, min, max, Type</keys>
+<column name="">0, 0, 0 ns, 0 ns, 1, 1, function</column>
+</table>
+</item>
+<item name = "Detail">
+<section name = "" level="1">
+<item name = "Instance"><table name="" hasTotal="0">
+<keys size="9">Instance, Module, min, max, min, max, min, max, Type</keys>
+</table>
+</item>
+<item name = "Loop"><table name="" hasTotal="0">
+<keys size="8">Loop Name, min, max, Latency, achieved, target, Count, Pipelined</keys>
+</table>
+</item>
+</section>
+</item>
+</section>
+</item>
+</section>
+
+<section name = "Utilization Estimates" level="0">
+<item name = "Summary"><table name="" hasTotal="1">
+<keys size="6">Name, BRAM_18K, DSP48E, FF, LUT, URAM</keys>
+<column name="DSP">-, -, -, -, -</column>
+<column name="Expression">-, -, 0, 6356, -</column>
+<column name="FIFO">-, -, -, -, -</column>
+<column name="Instance">-, -, -, -, -</column>
+<column name="Memory">-, -, -, -, -</column>
+<column name="Multiplexer">-, -, -, -, -</column>
+<column name="Register">-, -, -, -, -</column>
+<specialColumn name="Available SLR">1344, 3072, 864000, 432000, 320</specialColumn>
+<specialColumn name="Utilization SLR (%)">0, 0, 0, 1, 0</specialColumn>
+<specialColumn name="Available">5376, 12288, 3456000, 1728000, 1280</specialColumn>
+<specialColumn name="Utilization (%)">0, 0, 0, ~0, 0</specialColumn>
+</table>
+</item>
+<item name = "Detail">
+<section name = "" level="1">
+<item name = "Instance"><table name="" hasTotal="1">
+<keys size="7">Instance, Module, BRAM_18K, DSP48E, FF, LUT, URAM</keys>
+</table>
+</item>
+<item name = "DSP48E"><table name="" hasTotal="0">
+<keys size="3">Instance, Module, Expression</keys>
+</table>
+</item>
+<item name = "Memory"><table name="" hasTotal="1">
+<keys size="10">Memory, Module, BRAM_18K, FF, LUT, URAM, Words, Bits, Banks, W*Bits*Banks</keys>
+</table>
+</item>
+<item name = "FIFO"><table name="" hasTotal="1">
+<keys size="8">Name, BRAM_18K, FF, LUT, URAM, Depth, Bits, Size:D*B</keys>
+</table>
+</item>
+<item name = "Expression"><table name="" hasTotal="1">
+<keys size="7">Variable Name, Operation, DSP48E, FF, LUT, Bitwidth P0, Bitwidth P1</keys>
+<column name="acc_0_0_V_fu_2444_p2">+, 0, 0, 23, 16, 16</column>
+<column name="acc_0_10_V_fu_2596_p2">+, 0, 0, 16, 16, 16</column>
+<column name="acc_0_11_V_fu_2614_p2">+, 0, 0, 16, 16, 16</column>
+<column name="acc_0_12_V_fu_2636_p2">+, 0, 0, 23, 16, 16</column>
+<column name="acc_0_14_V_fu_2648_p2">+, 0, 0, 23, 16, 16</column>
+<column name="acc_0_16_V_fu_2670_p2">+, 0, 0, 23, 16, 16</column>
+<column name="acc_0_17_V_fu_2682_p2">+, 0, 0, 16, 16, 16</column>
+<column name="acc_0_18_V_fu_2688_p2">+, 0, 0, 23, 16, 16</column>
+<column name="acc_0_19_V_fu_2694_p2">+, 0, 0, 23, 16, 16</column>
+<column name="acc_0_1_V_fu_2456_p2">+, 0, 0, 23, 16, 16</column>
+<column name="acc_0_20_V_fu_2700_p2">+, 0, 0, 23, 16, 16</column>
+<column name="acc_0_21_V_fu_2718_p2">+, 0, 0, 16, 16, 16</column>
+<column name="acc_0_22_V_fu_2740_p2">+, 0, 0, 16, 16, 16</column>
+<column name="acc_0_23_V_fu_2746_p2">+, 0, 0, 23, 16, 16</column>
+<column name="acc_0_27_V_fu_2758_p2">+, 0, 0, 16, 16, 16</column>
+<column name="acc_0_28_V_fu_2774_p2">+, 0, 0, 23, 16, 16</column>
+<column name="acc_0_29_V_fu_2780_p2">+, 0, 0, 23, 16, 16</column>
+<column name="acc_0_2_V_fu_2478_p2">+, 0, 0, 16, 16, 16</column>
+<column name="acc_0_30_V_fu_2796_p2">+, 0, 0, 23, 16, 16</column>
+<column name="acc_0_31_V_fu_2812_p2">+, 0, 0, 23, 16, 16</column>
+<column name="acc_0_3_V_fu_2500_p2">+, 0, 0, 16, 16, 16</column>
+<column name="acc_0_4_V_fu_2512_p2">+, 0, 0, 23, 16, 16</column>
+<column name="acc_0_5_V_fu_2530_p2">+, 0, 0, 16, 16, 16</column>
+<column name="acc_0_6_V_fu_2542_p2">+, 0, 0, 23, 16, 16</column>
+<column name="acc_0_7_V_fu_2560_p2">+, 0, 0, 16, 16, 16</column>
+<column name="acc_0_8_V_fu_2572_p2">+, 0, 0, 16, 16, 16</column>
+<column name="acc_0_9_V_fu_2584_p2">+, 0, 0, 16, 16, 16</column>
+<column name="acc_1_0_V_fu_2834_p2">+, 0, 0, 23, 16, 16</column>
+<column name="acc_3_11_V_fu_3784_p2">+, 0, 0, 16, 16, 16</column>
+<column name="acc_3_12_V_fu_3806_p2">+, 0, 0, 23, 16, 16</column>
+<column name="acc_3_13_V_fu_3626_p2">+, 0, 0, 23, 16, 16</column>
+<column name="acc_3_14_V_fu_3818_p2">+, 0, 0, 23, 16, 16</column>
+<column name="acc_3_15_V_fu_3614_p2">+, 0, 0, 23, 16, 16</column>
+<column name="acc_3_16_V_fu_3840_p2">+, 0, 0, 23, 16, 16</column>
+<column name="acc_3_17_V_fu_3852_p2">+, 0, 0, 16, 16, 16</column>
+<column name="acc_3_18_V_fu_3858_p2">+, 0, 0, 23, 16, 16</column>
+<column name="acc_3_19_V_fu_3864_p2">+, 0, 0, 23, 16, 16</column>
+<column name="acc_3_20_V_fu_3870_p2">+, 0, 0, 23, 16, 16</column>
+<column name="acc_3_21_V_fu_3888_p2">+, 0, 0, 16, 16, 16</column>
+<column name="acc_3_22_V_fu_3910_p2">+, 0, 0, 16, 16, 16</column>
+<column name="acc_3_23_V_fu_3916_p2">+, 0, 0, 23, 16, 16</column>
+<column name="acc_3_25_V_fu_3682_p2">+, 0, 0, 23, 16, 16</column>
+<column name="acc_3_27_V_fu_3928_p2">+, 0, 0, 16, 16, 16</column>
+<column name="acc_3_28_V_fu_3944_p2">+, 0, 0, 23, 16, 16</column>
+<column name="acc_3_29_V_fu_3950_p2">+, 0, 0, 23, 16, 16</column>
+<column name="acc_3_30_V_fu_3966_p2">+, 0, 0, 23, 16, 16</column>
+<column name="acc_3_31_V_fu_3982_p2">+, 0, 0, 23, 16, 16</column>
+<column name="add_ln1118_1_fu_1032_p2">+, 0, 0, 22, 15, 15</column>
+<column name="add_ln1118_2_fu_1594_p2">+, 0, 0, 22, 15, 15</column>
+<column name="add_ln1118_3_fu_2156_p2">+, 0, 0, 22, 15, 15</column>
+<column name="add_ln1118_fu_470_p2">+, 0, 0, 22, 15, 15</column>
+<column name="add_ln703_100_fu_3084_p2">+, 0, 0, 23, 16, 16</column>
+<column name="add_ln703_101_fu_3090_p2">+, 0, 0, 23, 16, 16</column>
+<column name="add_ln703_102_fu_3096_p2">+, 0, 0, 16, 16, 16</column>
+<column name="add_ln703_103_fu_3102_p2">+, 0, 0, 23, 16, 10</column>
+<column name="add_ln703_104_fu_3108_p2">+, 0, 0, 16, 16, 16</column>
+<column name="add_ln703_105_fu_3114_p2">+, 0, 0, 21, 14, 10</column>
+<column name="add_ln703_106_fu_3124_p2">+, 0, 0, 16, 16, 16</column>
+<column name="add_ln703_107_fu_3130_p2">+, 0, 0, 16, 16, 16</column>
+<column name="add_ln703_108_fu_3136_p2">+, 0, 0, 23, 16, 16</column>
+<column name="add_ln703_109_fu_3142_p2">+, 0, 0, 16, 16, 16</column>
+<column name="add_ln703_110_fu_3148_p2">+, 0, 0, 16, 16, 16</column>
+<column name="add_ln703_111_fu_3154_p2">+, 0, 0, 22, 15, 15</column>
+<column name="add_ln703_112_fu_3164_p2">+, 0, 0, 23, 16, 16</column>
+<column name="add_ln703_113_fu_3170_p2">+, 0, 0, 23, 16, 16</column>
+<column name="add_ln703_114_fu_3176_p2">+, 0, 0, 21, 14, 14</column>
+<column name="add_ln703_115_fu_3186_p2">+, 0, 0, 23, 16, 16</column>
+<column name="add_ln703_116_fu_3192_p2">+, 0, 0, 20, 13, 9</column>
+<column name="add_ln703_117_fu_3202_p2">+, 0, 0, 23, 16, 16</column>
+<column name="add_ln703_118_fu_3208_p2">+, 0, 0, 22, 15, 9</column>
+<column name="add_ln703_119_fu_3218_p2">+, 0, 0, 23, 16, 16</column>
+<column name="add_ln703_11_fu_2506_p2">+, 0, 0, 23, 16, 9</column>
+<column name="add_ln703_120_fu_3224_p2">+, 0, 0, 23, 16, 16</column>
+<column name="add_ln703_121_fu_3230_p2">+, 0, 0, 23, 16, 9</column>
+<column name="add_ln703_122_fu_3236_p2">+, 0, 0, 23, 16, 16</column>
+<column name="add_ln703_123_fu_3242_p2">+, 0, 0, 21, 14, 11</column>
+<column name="add_ln703_124_fu_3252_p2">+, 0, 0, 16, 16, 16</column>
+<column name="add_ln703_125_fu_3258_p2">+, 0, 0, 16, 16, 16</column>
+<column name="add_ln703_126_fu_3264_p2">+, 0, 0, 20, 13, 10</column>
+<column name="add_ln703_127_fu_3274_p2">+, 0, 0, 16, 16, 16</column>
+<column name="add_ln703_128_fu_3280_p2">+, 0, 0, 16, 16, 16</column>
+<column name="add_ln703_129_fu_3286_p2">+, 0, 0, 23, 16, 9</column>
+<column name="add_ln703_130_fu_3292_p2">+, 0, 0, 23, 16, 16</column>
+<column name="add_ln703_131_fu_3298_p2">+, 0, 0, 23, 16, 9</column>
+<column name="add_ln703_132_fu_3304_p2">+, 0, 0, 16, 16, 16</column>
+<column name="add_ln703_133_fu_3310_p2">+, 0, 0, 16, 16, 16</column>
+<column name="add_ln703_134_fu_3316_p2">+, 0, 0, 23, 16, 9</column>
+<column name="add_ln703_135_fu_3322_p2">+, 0, 0, 23, 16, 16</column>
+<column name="add_ln703_136_fu_3328_p2">+, 0, 0, 16, 16, 16</column>
+<column name="add_ln703_137_fu_3334_p2">+, 0, 0, 23, 16, 8</column>
+<column name="add_ln703_138_fu_3340_p2">+, 0, 0, 16, 16, 16</column>
+<column name="add_ln703_139_fu_3346_p2">+, 0, 0, 16, 16, 16</column>
+<column name="add_ln703_13_fu_2518_p2">+, 0, 0, 23, 16, 9</column>
+<column name="add_ln703_140_fu_3352_p2">+, 0, 0, 16, 16, 16</column>
+<column name="add_ln703_141_fu_3358_p2">+, 0, 0, 16, 16, 16</column>
+<column name="add_ln703_142_fu_3364_p2">+, 0, 0, 16, 16, 16</column>
+<column name="add_ln703_143_fu_3370_p2">+, 0, 0, 16, 16, 16</column>
+<column name="add_ln703_144_fu_3376_p2">+, 0, 0, 16, 16, 16</column>
+<column name="add_ln703_145_fu_3382_p2">+, 0, 0, 16, 16, 16</column>
+<column name="add_ln703_146_fu_3388_p2">+, 0, 0, 23, 16, 11</column>
+<column name="add_ln703_147_fu_3394_p2">+, 0, 0, 16, 16, 16</column>
+<column name="add_ln703_148_fu_3400_p2">+, 0, 0, 23, 16, 16</column>
+<column name="add_ln703_149_fu_3406_p2">+, 0, 0, 20, 13, 8</column>
+<column name="add_ln703_14_fu_2524_p2">+, 0, 0, 16, 16, 16</column>
+<column name="add_ln703_150_fu_3416_p2">+, 0, 0, 23, 16, 16</column>
+<column name="add_ln703_151_fu_3422_p2">+, 0, 0, 23, 16, 16</column>
+<column name="add_ln703_152_fu_3428_p2">+, 0, 0, 23, 16, 16</column>
+<column name="add_ln703_153_fu_3434_p2">+, 0, 0, 23, 16, 10</column>
+<column name="add_ln703_154_fu_3440_p2">+, 0, 0, 20, 13, 13</column>
+<column name="add_ln703_155_fu_3450_p2">+, 0, 0, 23, 16, 16</column>
+<column name="add_ln703_156_fu_3456_p2">+, 0, 0, 16, 16, 16</column>
+<column name="add_ln703_157_fu_3462_p2">+, 0, 0, 16, 16, 16</column>
+<column name="add_ln703_158_fu_3468_p2">+, 0, 0, 23, 16, 16</column>
+<column name="add_ln703_159_fu_3474_p2">+, 0, 0, 23, 16, 16</column>
+<column name="add_ln703_160_fu_3480_p2">+, 0, 0, 23, 16, 16</column>
+<column name="add_ln703_161_fu_3486_p2">+, 0, 0, 16, 16, 16</column>
+<column name="add_ln703_162_fu_3492_p2">+, 0, 0, 23, 16, 10</column>
+<column name="add_ln703_163_fu_3498_p2">+, 0, 0, 16, 16, 16</column>
+<column name="add_ln703_164_fu_3504_p2">+, 0, 0, 21, 14, 10</column>
+<column name="add_ln703_165_fu_3514_p2">+, 0, 0, 16, 16, 16</column>
+<column name="add_ln703_166_fu_3520_p2">+, 0, 0, 16, 16, 16</column>
+<column name="add_ln703_167_fu_3526_p2">+, 0, 0, 23, 16, 16</column>
+<column name="add_ln703_168_fu_3532_p2">+, 0, 0, 16, 16, 16</column>
+<column name="add_ln703_169_fu_3538_p2">+, 0, 0, 16, 16, 16</column>
+<column name="add_ln703_16_fu_2536_p2">+, 0, 0, 23, 16, 9</column>
+<column name="add_ln703_170_fu_3544_p2">+, 0, 0, 22, 15, 15</column>
+<column name="add_ln703_171_fu_3554_p2">+, 0, 0, 23, 16, 16</column>
+<column name="add_ln703_172_fu_3560_p2">+, 0, 0, 23, 16, 16</column>
+<column name="add_ln703_173_fu_3566_p2">+, 0, 0, 21, 14, 14</column>
+<column name="add_ln703_174_fu_3576_p2">+, 0, 0, 23, 16, 16</column>
+<column name="add_ln703_175_fu_3582_p2">+, 0, 0, 20, 13, 9</column>
+<column name="add_ln703_176_fu_3592_p2">+, 0, 0, 23, 16, 16</column>
+<column name="add_ln703_177_fu_3598_p2">+, 0, 0, 22, 15, 9</column>
+<column name="add_ln703_178_fu_3608_p2">+, 0, 0, 23, 16, 16</column>
+<column name="add_ln703_180_fu_3620_p2">+, 0, 0, 23, 16, 9</column>
+<column name="add_ln703_182_fu_3632_p2">+, 0, 0, 21, 14, 11</column>
+<column name="add_ln703_183_fu_3642_p2">+, 0, 0, 16, 16, 16</column>
+<column name="add_ln703_184_fu_3648_p2">+, 0, 0, 16, 16, 16</column>
+<column name="add_ln703_185_fu_3654_p2">+, 0, 0, 20, 13, 10</column>
+<column name="add_ln703_186_fu_3664_p2">+, 0, 0, 16, 16, 16</column>
+<column name="add_ln703_187_fu_3670_p2">+, 0, 0, 16, 16, 16</column>
+<column name="add_ln703_188_fu_3676_p2">+, 0, 0, 23, 16, 9</column>
+<column name="add_ln703_18_fu_2548_p2">+, 0, 0, 16, 16, 16</column>
+<column name="add_ln703_190_fu_3688_p2">+, 0, 0, 23, 16, 9</column>
+<column name="add_ln703_191_fu_3694_p2">+, 0, 0, 16, 16, 16</column>
+<column name="add_ln703_192_fu_3700_p2">+, 0, 0, 16, 16, 16</column>
+<column name="add_ln703_193_fu_3706_p2">+, 0, 0, 23, 16, 9</column>
+<column name="add_ln703_194_fu_3712_p2">+, 0, 0, 23, 16, 16</column>
+<column name="add_ln703_195_fu_3718_p2">+, 0, 0, 16, 16, 16</column>
+<column name="add_ln703_196_fu_3724_p2">+, 0, 0, 23, 16, 8</column>
+<column name="add_ln703_197_fu_3730_p2">+, 0, 0, 16, 16, 16</column>
+<column name="add_ln703_198_fu_3736_p2">+, 0, 0, 16, 16, 16</column>
+<column name="add_ln703_199_fu_3742_p2">+, 0, 0, 16, 16, 16</column>
+<column name="add_ln703_19_fu_2554_p2">+, 0, 0, 23, 16, 8</column>
+<column name="add_ln703_1_fu_2438_p2">+, 0, 0, 23, 16, 16</column>
+<column name="add_ln703_200_fu_3748_p2">+, 0, 0, 16, 16, 16</column>
+<column name="add_ln703_201_fu_3754_p2">+, 0, 0, 16, 16, 16</column>
+<column name="add_ln703_202_fu_3760_p2">+, 0, 0, 16, 16, 16</column>
+<column name="add_ln703_203_fu_3766_p2">+, 0, 0, 16, 16, 16</column>
+<column name="add_ln703_204_fu_3772_p2">+, 0, 0, 16, 16, 16</column>
+<column name="add_ln703_205_fu_3778_p2">+, 0, 0, 23, 16, 11</column>
+<column name="add_ln703_207_fu_3790_p2">+, 0, 0, 23, 16, 16</column>
+<column name="add_ln703_208_fu_3796_p2">+, 0, 0, 20, 13, 8</column>
+<column name="add_ln703_210_fu_3812_p2">+, 0, 0, 23, 16, 16</column>
+<column name="add_ln703_212_fu_3824_p2">+, 0, 0, 23, 16, 10</column>
+<column name="add_ln703_213_fu_3830_p2">+, 0, 0, 20, 13, 13</column>
+<column name="add_ln703_215_fu_3846_p2">+, 0, 0, 16, 16, 16</column>
+<column name="add_ln703_21_fu_2566_p2">+, 0, 0, 16, 16, 16</column>
+<column name="add_ln703_220_fu_3876_p2">+, 0, 0, 16, 16, 16</column>
+<column name="add_ln703_221_fu_3882_p2">+, 0, 0, 23, 16, 10</column>
+<column name="add_ln703_223_fu_3894_p2">+, 0, 0, 21, 14, 10</column>
+<column name="add_ln703_224_fu_3904_p2">+, 0, 0, 16, 16, 16</column>
+<column name="add_ln703_227_fu_3922_p2">+, 0, 0, 16, 16, 16</column>
+<column name="add_ln703_229_fu_3934_p2">+, 0, 0, 22, 15, 15</column>
+<column name="add_ln703_232_fu_3956_p2">+, 0, 0, 21, 14, 14</column>
+<column name="add_ln703_234_fu_3972_p2">+, 0, 0, 20, 13, 9</column>
+<column name="add_ln703_23_fu_2578_p2">+, 0, 0, 16, 16, 16</column>
+<column name="add_ln703_25_fu_2590_p2">+, 0, 0, 16, 16, 16</column>
+<column name="add_ln703_27_fu_2602_p2">+, 0, 0, 16, 16, 16</column>
+<column name="add_ln703_28_fu_2608_p2">+, 0, 0, 23, 16, 11</column>
+<column name="add_ln703_30_fu_2620_p2">+, 0, 0, 23, 16, 16</column>
+<column name="add_ln703_31_fu_2626_p2">+, 0, 0, 20, 13, 8</column>
+<column name="add_ln703_33_fu_2642_p2">+, 0, 0, 23, 16, 16</column>
+<column name="add_ln703_35_fu_2654_p2">+, 0, 0, 23, 16, 10</column>
+<column name="add_ln703_36_fu_2660_p2">+, 0, 0, 20, 13, 13</column>
+<column name="add_ln703_38_fu_2676_p2">+, 0, 0, 16, 16, 16</column>
+<column name="add_ln703_3_fu_2450_p2">+, 0, 0, 23, 16, 9</column>
+<column name="add_ln703_43_fu_2706_p2">+, 0, 0, 16, 16, 16</column>
+<column name="add_ln703_44_fu_2712_p2">+, 0, 0, 23, 16, 10</column>
+<column name="add_ln703_46_fu_2724_p2">+, 0, 0, 21, 14, 10</column>
+<column name="add_ln703_47_fu_2734_p2">+, 0, 0, 16, 16, 16</column>
+<column name="add_ln703_50_fu_2752_p2">+, 0, 0, 16, 16, 16</column>
+<column name="add_ln703_52_fu_2764_p2">+, 0, 0, 22, 15, 15</column>
+<column name="add_ln703_55_fu_2786_p2">+, 0, 0, 21, 14, 14</column>
+<column name="add_ln703_57_fu_2802_p2">+, 0, 0, 20, 13, 9</column>
+<column name="add_ln703_59_fu_2818_p2">+, 0, 0, 22, 15, 9</column>
+<column name="add_ln703_5_fu_2462_p2">+, 0, 0, 21, 14, 11</column>
+<column name="add_ln703_60_fu_2828_p2">+, 0, 0, 23, 16, 16</column>
+<column name="add_ln703_62_fu_2840_p2">+, 0, 0, 23, 16, 9</column>
+<column name="add_ln703_63_fu_2846_p2">+, 0, 0, 23, 16, 16</column>
+<column name="add_ln703_64_fu_2852_p2">+, 0, 0, 21, 14, 11</column>
+<column name="add_ln703_65_fu_2862_p2">+, 0, 0, 16, 16, 16</column>
+<column name="add_ln703_66_fu_2868_p2">+, 0, 0, 16, 16, 16</column>
+<column name="add_ln703_67_fu_2874_p2">+, 0, 0, 20, 13, 10</column>
+<column name="add_ln703_68_fu_2884_p2">+, 0, 0, 16, 16, 16</column>
+<column name="add_ln703_69_fu_2890_p2">+, 0, 0, 16, 16, 16</column>
+<column name="add_ln703_6_fu_2472_p2">+, 0, 0, 16, 16, 16</column>
+<column name="add_ln703_70_fu_2896_p2">+, 0, 0, 23, 16, 9</column>
+<column name="add_ln703_71_fu_2902_p2">+, 0, 0, 23, 16, 16</column>
+<column name="add_ln703_72_fu_2908_p2">+, 0, 0, 23, 16, 9</column>
+<column name="add_ln703_73_fu_2914_p2">+, 0, 0, 16, 16, 16</column>
+<column name="add_ln703_74_fu_2920_p2">+, 0, 0, 16, 16, 16</column>
+<column name="add_ln703_75_fu_2926_p2">+, 0, 0, 23, 16, 9</column>
+<column name="add_ln703_76_fu_2932_p2">+, 0, 0, 23, 16, 16</column>
+<column name="add_ln703_77_fu_2938_p2">+, 0, 0, 16, 16, 16</column>
+<column name="add_ln703_78_fu_2944_p2">+, 0, 0, 23, 16, 8</column>
+<column name="add_ln703_79_fu_2950_p2">+, 0, 0, 16, 16, 16</column>
+<column name="add_ln703_80_fu_2956_p2">+, 0, 0, 16, 16, 16</column>
+<column name="add_ln703_81_fu_2962_p2">+, 0, 0, 16, 16, 16</column>
+<column name="add_ln703_82_fu_2968_p2">+, 0, 0, 16, 16, 16</column>
+<column name="add_ln703_83_fu_2974_p2">+, 0, 0, 16, 16, 16</column>
+<column name="add_ln703_84_fu_2980_p2">+, 0, 0, 16, 16, 16</column>
+<column name="add_ln703_85_fu_2986_p2">+, 0, 0, 16, 16, 16</column>
+<column name="add_ln703_86_fu_2992_p2">+, 0, 0, 16, 16, 16</column>
+<column name="add_ln703_87_fu_2998_p2">+, 0, 0, 23, 16, 11</column>
+<column name="add_ln703_88_fu_3004_p2">+, 0, 0, 16, 16, 16</column>
+<column name="add_ln703_89_fu_3010_p2">+, 0, 0, 23, 16, 16</column>
+<column name="add_ln703_8_fu_2484_p2">+, 0, 0, 20, 13, 10</column>
+<column name="add_ln703_90_fu_3016_p2">+, 0, 0, 20, 13, 8</column>
+<column name="add_ln703_91_fu_3026_p2">+, 0, 0, 23, 16, 16</column>
+<column name="add_ln703_92_fu_3032_p2">+, 0, 0, 23, 16, 16</column>
+<column name="add_ln703_93_fu_3038_p2">+, 0, 0, 23, 16, 16</column>
+<column name="add_ln703_94_fu_3044_p2">+, 0, 0, 23, 16, 10</column>
+<column name="add_ln703_95_fu_3050_p2">+, 0, 0, 20, 13, 13</column>
+<column name="add_ln703_96_fu_3060_p2">+, 0, 0, 23, 16, 16</column>
+<column name="add_ln703_97_fu_3066_p2">+, 0, 0, 16, 16, 16</column>
+<column name="add_ln703_98_fu_3072_p2">+, 0, 0, 16, 16, 16</column>
+<column name="add_ln703_99_fu_3078_p2">+, 0, 0, 23, 16, 16</column>
+<column name="add_ln703_9_fu_2494_p2">+, 0, 0, 16, 16, 16</column>
+<column name="add_ln703_fu_2428_p2">+, 0, 0, 22, 15, 9</column>
+<column name="sub_ln1118_10_fu_490_p2">-, 0, 0, 23, 16, 16</column>
+<column name="sub_ln1118_11_fu_534_p2">-, 0, 0, 20, 1, 13</column>
+<column name="sub_ln1118_12_fu_584_p2">-, 0, 0, 22, 1, 15</column>
+<column name="sub_ln1118_13_fu_604_p2">-, 0, 0, 23, 16, 16</column>
+<column name="sub_ln1118_14_fu_624_p2">-, 0, 0, 21, 1, 14</column>
+<column name="sub_ln1118_15_fu_656_p2">-, 0, 0, 22, 1, 15</column>
+<column name="sub_ln1118_16_fu_702_p2">-, 0, 0, 21, 1, 14</column>
+<column name="sub_ln1118_17_fu_722_p2">-, 0, 0, 20, 1, 13</column>
+<column name="sub_ln1118_18_fu_766_p2">-, 0, 0, 22, 15, 15</column>
+<column name="sub_ln1118_19_fu_806_p2">-, 0, 0, 23, 1, 16</column>
+<column name="sub_ln1118_1_fu_204_p2">-, 0, 0, 22, 15, 15</column>
+<column name="sub_ln1118_20_fu_850_p2">-, 0, 0, 23, 16, 16</column>
+<column name="sub_ln1118_21_fu_870_p2">-, 0, 0, 23, 16, 16</column>
+<column name="sub_ln1118_22_fu_902_p2">-, 0, 0, 23, 1, 16</column>
+<column name="sub_ln1118_23_fu_934_p2">-, 0, 0, 23, 16, 16</column>
+<column name="sub_ln1118_24_fu_954_p2">-, 0, 0, 23, 16, 16</column>
+<column name="sub_ln1118_25_fu_974_p2">-, 0, 0, 23, 1, 16</column>
+<column name="sub_ln1118_26_fu_998_p2">-, 0, 0, 23, 16, 16</column>
+<column name="sub_ln1118_27_fu_1052_p2">-, 0, 0, 23, 16, 16</column>
+<column name="sub_ln1118_28_fu_1072_p2">-, 0, 0, 20, 1, 13</column>
+<column name="sub_ln1118_29_fu_1096_p2">-, 0, 0, 20, 1, 13</column>
+<column name="sub_ln1118_2_fu_244_p2">-, 0, 0, 23, 1, 16</column>
+<column name="sub_ln1118_30_fu_1146_p2">-, 0, 0, 22, 1, 15</column>
+<column name="sub_ln1118_31_fu_1166_p2">-, 0, 0, 23, 16, 16</column>
+<column name="sub_ln1118_32_fu_1186_p2">-, 0, 0, 21, 1, 14</column>
+<column name="sub_ln1118_33_fu_1218_p2">-, 0, 0, 22, 1, 15</column>
+<column name="sub_ln1118_34_fu_1264_p2">-, 0, 0, 21, 1, 14</column>
+<column name="sub_ln1118_35_fu_1284_p2">-, 0, 0, 20, 1, 13</column>
+<column name="sub_ln1118_36_fu_1328_p2">-, 0, 0, 22, 15, 15</column>
+<column name="sub_ln1118_37_fu_1368_p2">-, 0, 0, 23, 1, 16</column>
+<column name="sub_ln1118_38_fu_1412_p2">-, 0, 0, 23, 16, 16</column>
+<column name="sub_ln1118_39_fu_1432_p2">-, 0, 0, 23, 16, 16</column>
+<column name="sub_ln1118_3_fu_288_p2">-, 0, 0, 23, 16, 16</column>
+<column name="sub_ln1118_40_fu_1464_p2">-, 0, 0, 23, 1, 16</column>
+<column name="sub_ln1118_41_fu_1496_p2">-, 0, 0, 23, 16, 16</column>
+<column name="sub_ln1118_42_fu_1516_p2">-, 0, 0, 23, 16, 16</column>
+<column name="sub_ln1118_43_fu_1536_p2">-, 0, 0, 23, 1, 16</column>
+<column name="sub_ln1118_44_fu_1560_p2">-, 0, 0, 23, 16, 16</column>
+<column name="sub_ln1118_45_fu_1614_p2">-, 0, 0, 23, 16, 16</column>
+<column name="sub_ln1118_46_fu_1634_p2">-, 0, 0, 20, 1, 13</column>
+<column name="sub_ln1118_47_fu_1658_p2">-, 0, 0, 20, 1, 13</column>
+<column name="sub_ln1118_48_fu_1708_p2">-, 0, 0, 22, 1, 15</column>
+<column name="sub_ln1118_49_fu_1728_p2">-, 0, 0, 23, 16, 16</column>
+<column name="sub_ln1118_4_fu_308_p2">-, 0, 0, 23, 16, 16</column>
+<column name="sub_ln1118_50_fu_1748_p2">-, 0, 0, 21, 1, 14</column>
+<column name="sub_ln1118_51_fu_1780_p2">-, 0, 0, 22, 1, 15</column>
+<column name="sub_ln1118_52_fu_1826_p2">-, 0, 0, 21, 1, 14</column>
+<column name="sub_ln1118_53_fu_1846_p2">-, 0, 0, 20, 1, 13</column>
+<column name="sub_ln1118_54_fu_1890_p2">-, 0, 0, 22, 15, 15</column>
+<column name="sub_ln1118_55_fu_1930_p2">-, 0, 0, 23, 1, 16</column>
+<column name="sub_ln1118_56_fu_1974_p2">-, 0, 0, 23, 16, 16</column>
+<column name="sub_ln1118_57_fu_1994_p2">-, 0, 0, 23, 16, 16</column>
+<column name="sub_ln1118_58_fu_2026_p2">-, 0, 0, 23, 1, 16</column>
+<column name="sub_ln1118_59_fu_2058_p2">-, 0, 0, 23, 16, 16</column>
+<column name="sub_ln1118_5_fu_340_p2">-, 0, 0, 23, 1, 16</column>
+<column name="sub_ln1118_60_fu_2078_p2">-, 0, 0, 23, 16, 16</column>
+<column name="sub_ln1118_61_fu_2098_p2">-, 0, 0, 23, 1, 16</column>
+<column name="sub_ln1118_62_fu_2122_p2">-, 0, 0, 23, 16, 16</column>
+<column name="sub_ln1118_63_fu_2176_p2">-, 0, 0, 23, 16, 16</column>
+<column name="sub_ln1118_64_fu_2196_p2">-, 0, 0, 20, 1, 13</column>
+<column name="sub_ln1118_65_fu_2220_p2">-, 0, 0, 20, 1, 13</column>
+<column name="sub_ln1118_66_fu_2270_p2">-, 0, 0, 22, 1, 15</column>
+<column name="sub_ln1118_67_fu_2290_p2">-, 0, 0, 23, 16, 16</column>
+<column name="sub_ln1118_68_fu_2310_p2">-, 0, 0, 21, 1, 14</column>
+<column name="sub_ln1118_69_fu_2342_p2">-, 0, 0, 22, 1, 15</column>
+<column name="sub_ln1118_6_fu_372_p2">-, 0, 0, 23, 16, 16</column>
+<column name="sub_ln1118_70_fu_2388_p2">-, 0, 0, 21, 1, 14</column>
+<column name="sub_ln1118_71_fu_2408_p2">-, 0, 0, 20, 1, 13</column>
+<column name="sub_ln1118_7_fu_392_p2">-, 0, 0, 23, 16, 16</column>
+<column name="sub_ln1118_8_fu_412_p2">-, 0, 0, 23, 1, 16</column>
+<column name="sub_ln1118_9_fu_436_p2">-, 0, 0, 23, 16, 16</column>
+<column name="sub_ln1118_fu_510_p2">-, 0, 0, 20, 1, 13</column>
+</table>
+</item>
+<item name = "Multiplexer"><table name="" hasTotal="1">
+<keys size="5">Name, LUT, Input Size, Bits, Total Bits</keys>
+</table>
+</item>
+<item name = "Register"><table name="" hasTotal="1">
+<keys size="5">Name, FF, LUT, Bits, Const Bits</keys>
+</table>
+</item>
+</section>
+</item>
+</section>
+
+<section name = "Interface" level="0">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="6">RTL Ports, Dir, Bits, Protocol, Source Object, C Type</keys>
+<column name="ap_ready">out, 1, ap_ctrl_hs, pointwise_conv_1d_latency_cl.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.2, return value</column>
+<column name="ap_return_0">out, 16, ap_ctrl_hs, pointwise_conv_1d_latency_cl.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.2, return value</column>
+<column name="ap_return_1">out, 16, ap_ctrl_hs, pointwise_conv_1d_latency_cl.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.2, return value</column>
+<column name="ap_return_2">out, 16, ap_ctrl_hs, pointwise_conv_1d_latency_cl.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.2, return value</column>
+<column name="ap_return_3">out, 16, ap_ctrl_hs, pointwise_conv_1d_latency_cl.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.2, return value</column>
+<column name="ap_return_4">out, 16, ap_ctrl_hs, pointwise_conv_1d_latency_cl.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.2, return value</column>
+<column name="ap_return_5">out, 16, ap_ctrl_hs, pointwise_conv_1d_latency_cl.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.2, return value</column>
+<column name="ap_return_6">out, 16, ap_ctrl_hs, pointwise_conv_1d_latency_cl.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.2, return value</column>
+<column name="ap_return_7">out, 16, ap_ctrl_hs, pointwise_conv_1d_latency_cl.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.2, return value</column>
+<column name="ap_return_8">out, 16, ap_ctrl_hs, pointwise_conv_1d_latency_cl.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.2, return value</column>
+<column name="ap_return_9">out, 16, ap_ctrl_hs, pointwise_conv_1d_latency_cl.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.2, return value</column>
+<column name="ap_return_10">out, 16, ap_ctrl_hs, pointwise_conv_1d_latency_cl.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.2, return value</column>
+<column name="ap_return_11">out, 16, ap_ctrl_hs, pointwise_conv_1d_latency_cl.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.2, return value</column>
+<column name="ap_return_12">out, 16, ap_ctrl_hs, pointwise_conv_1d_latency_cl.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.2, return value</column>
+<column name="ap_return_13">out, 16, ap_ctrl_hs, pointwise_conv_1d_latency_cl.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.2, return value</column>
+<column name="ap_return_14">out, 16, ap_ctrl_hs, pointwise_conv_1d_latency_cl.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.2, return value</column>
+<column name="ap_return_15">out, 16, ap_ctrl_hs, pointwise_conv_1d_latency_cl.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.2, return value</column>
+<column name="ap_return_16">out, 16, ap_ctrl_hs, pointwise_conv_1d_latency_cl.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.2, return value</column>
+<column name="ap_return_17">out, 16, ap_ctrl_hs, pointwise_conv_1d_latency_cl.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.2, return value</column>
+<column name="ap_return_18">out, 16, ap_ctrl_hs, pointwise_conv_1d_latency_cl.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.2, return value</column>
+<column name="ap_return_19">out, 16, ap_ctrl_hs, pointwise_conv_1d_latency_cl.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.2, return value</column>
+<column name="ap_return_20">out, 16, ap_ctrl_hs, pointwise_conv_1d_latency_cl.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.2, return value</column>
+<column name="ap_return_21">out, 16, ap_ctrl_hs, pointwise_conv_1d_latency_cl.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.2, return value</column>
+<column name="ap_return_22">out, 16, ap_ctrl_hs, pointwise_conv_1d_latency_cl.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.2, return value</column>
+<column name="ap_return_23">out, 16, ap_ctrl_hs, pointwise_conv_1d_latency_cl.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.2, return value</column>
+<column name="ap_return_24">out, 16, ap_ctrl_hs, pointwise_conv_1d_latency_cl.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.2, return value</column>
+<column name="ap_return_25">out, 16, ap_ctrl_hs, pointwise_conv_1d_latency_cl.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.2, return value</column>
+<column name="ap_return_26">out, 16, ap_ctrl_hs, pointwise_conv_1d_latency_cl.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.2, return value</column>
+<column name="ap_return_27">out, 16, ap_ctrl_hs, pointwise_conv_1d_latency_cl.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.2, return value</column>
+<column name="ap_return_28">out, 16, ap_ctrl_hs, pointwise_conv_1d_latency_cl.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.2, return value</column>
+<column name="ap_return_29">out, 16, ap_ctrl_hs, pointwise_conv_1d_latency_cl.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.2, return value</column>
+<column name="ap_return_30">out, 16, ap_ctrl_hs, pointwise_conv_1d_latency_cl.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.2, return value</column>
+<column name="ap_return_31">out, 16, ap_ctrl_hs, pointwise_conv_1d_latency_cl.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.2, return value</column>
+<column name="ap_return_32">out, 16, ap_ctrl_hs, pointwise_conv_1d_latency_cl.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.2, return value</column>
+<column name="ap_return_33">out, 16, ap_ctrl_hs, pointwise_conv_1d_latency_cl.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.2, return value</column>
+<column name="ap_return_34">out, 16, ap_ctrl_hs, pointwise_conv_1d_latency_cl.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.2, return value</column>
+<column name="ap_return_35">out, 16, ap_ctrl_hs, pointwise_conv_1d_latency_cl.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.2, return value</column>
+<column name="ap_return_36">out, 16, ap_ctrl_hs, pointwise_conv_1d_latency_cl.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.2, return value</column>
+<column name="ap_return_37">out, 16, ap_ctrl_hs, pointwise_conv_1d_latency_cl.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.2, return value</column>
+<column name="ap_return_38">out, 16, ap_ctrl_hs, pointwise_conv_1d_latency_cl.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.2, return value</column>
+<column name="ap_return_39">out, 16, ap_ctrl_hs, pointwise_conv_1d_latency_cl.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.2, return value</column>
+<column name="ap_return_40">out, 16, ap_ctrl_hs, pointwise_conv_1d_latency_cl.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.2, return value</column>
+<column name="ap_return_41">out, 16, ap_ctrl_hs, pointwise_conv_1d_latency_cl.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.2, return value</column>
+<column name="ap_return_42">out, 16, ap_ctrl_hs, pointwise_conv_1d_latency_cl.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.2, return value</column>
+<column name="ap_return_43">out, 16, ap_ctrl_hs, pointwise_conv_1d_latency_cl.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.2, return value</column>
+<column name="ap_return_44">out, 16, ap_ctrl_hs, pointwise_conv_1d_latency_cl.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.2, return value</column>
+<column name="ap_return_45">out, 16, ap_ctrl_hs, pointwise_conv_1d_latency_cl.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.2, return value</column>
+<column name="ap_return_46">out, 16, ap_ctrl_hs, pointwise_conv_1d_latency_cl.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.2, return value</column>
+<column name="ap_return_47">out, 16, ap_ctrl_hs, pointwise_conv_1d_latency_cl.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.2, return value</column>
+<column name="ap_return_48">out, 16, ap_ctrl_hs, pointwise_conv_1d_latency_cl.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.2, return value</column>
+<column name="ap_return_49">out, 16, ap_ctrl_hs, pointwise_conv_1d_latency_cl.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.2, return value</column>
+<column name="ap_return_50">out, 16, ap_ctrl_hs, pointwise_conv_1d_latency_cl.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.2, return value</column>
+<column name="ap_return_51">out, 16, ap_ctrl_hs, pointwise_conv_1d_latency_cl.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.2, return value</column>
+<column name="ap_return_52">out, 16, ap_ctrl_hs, pointwise_conv_1d_latency_cl.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.2, return value</column>
+<column name="ap_return_53">out, 16, ap_ctrl_hs, pointwise_conv_1d_latency_cl.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.2, return value</column>
+<column name="ap_return_54">out, 16, ap_ctrl_hs, pointwise_conv_1d_latency_cl.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.2, return value</column>
+<column name="ap_return_55">out, 16, ap_ctrl_hs, pointwise_conv_1d_latency_cl.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.2, return value</column>
+<column name="ap_return_56">out, 16, ap_ctrl_hs, pointwise_conv_1d_latency_cl.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.2, return value</column>
+<column name="ap_return_57">out, 16, ap_ctrl_hs, pointwise_conv_1d_latency_cl.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.2, return value</column>
+<column name="ap_return_58">out, 16, ap_ctrl_hs, pointwise_conv_1d_latency_cl.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.2, return value</column>
+<column name="ap_return_59">out, 16, ap_ctrl_hs, pointwise_conv_1d_latency_cl.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.2, return value</column>
+<column name="ap_return_60">out, 16, ap_ctrl_hs, pointwise_conv_1d_latency_cl.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.2, return value</column>
+<column name="ap_return_61">out, 16, ap_ctrl_hs, pointwise_conv_1d_latency_cl.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.2, return value</column>
+<column name="ap_return_62">out, 16, ap_ctrl_hs, pointwise_conv_1d_latency_cl.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.2, return value</column>
+<column name="ap_return_63">out, 16, ap_ctrl_hs, pointwise_conv_1d_latency_cl.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.2, return value</column>
+<column name="ap_return_64">out, 16, ap_ctrl_hs, pointwise_conv_1d_latency_cl.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.2, return value</column>
+<column name="ap_return_65">out, 16, ap_ctrl_hs, pointwise_conv_1d_latency_cl.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.2, return value</column>
+<column name="ap_return_66">out, 16, ap_ctrl_hs, pointwise_conv_1d_latency_cl.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.2, return value</column>
+<column name="ap_return_67">out, 16, ap_ctrl_hs, pointwise_conv_1d_latency_cl.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.2, return value</column>
+<column name="ap_return_68">out, 16, ap_ctrl_hs, pointwise_conv_1d_latency_cl.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.2, return value</column>
+<column name="ap_return_69">out, 16, ap_ctrl_hs, pointwise_conv_1d_latency_cl.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.2, return value</column>
+<column name="ap_return_70">out, 16, ap_ctrl_hs, pointwise_conv_1d_latency_cl.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.2, return value</column>
+<column name="ap_return_71">out, 16, ap_ctrl_hs, pointwise_conv_1d_latency_cl.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.2, return value</column>
+<column name="ap_return_72">out, 16, ap_ctrl_hs, pointwise_conv_1d_latency_cl.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.2, return value</column>
+<column name="ap_return_73">out, 16, ap_ctrl_hs, pointwise_conv_1d_latency_cl.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.2, return value</column>
+<column name="ap_return_74">out, 16, ap_ctrl_hs, pointwise_conv_1d_latency_cl.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.2, return value</column>
+<column name="ap_return_75">out, 16, ap_ctrl_hs, pointwise_conv_1d_latency_cl.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.2, return value</column>
+<column name="ap_return_76">out, 16, ap_ctrl_hs, pointwise_conv_1d_latency_cl.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.2, return value</column>
+<column name="ap_return_77">out, 16, ap_ctrl_hs, pointwise_conv_1d_latency_cl.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.2, return value</column>
+<column name="ap_return_78">out, 16, ap_ctrl_hs, pointwise_conv_1d_latency_cl.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.2, return value</column>
+<column name="ap_return_79">out, 16, ap_ctrl_hs, pointwise_conv_1d_latency_cl.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.2, return value</column>
+<column name="ap_return_80">out, 16, ap_ctrl_hs, pointwise_conv_1d_latency_cl.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.2, return value</column>
+<column name="ap_return_81">out, 16, ap_ctrl_hs, pointwise_conv_1d_latency_cl.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.2, return value</column>
+<column name="ap_return_82">out, 16, ap_ctrl_hs, pointwise_conv_1d_latency_cl.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.2, return value</column>
+<column name="ap_return_83">out, 16, ap_ctrl_hs, pointwise_conv_1d_latency_cl.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.2, return value</column>
+<column name="ap_return_84">out, 16, ap_ctrl_hs, pointwise_conv_1d_latency_cl.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.2, return value</column>
+<column name="ap_return_85">out, 16, ap_ctrl_hs, pointwise_conv_1d_latency_cl.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.2, return value</column>
+<column name="ap_return_86">out, 16, ap_ctrl_hs, pointwise_conv_1d_latency_cl.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.2, return value</column>
+<column name="ap_return_87">out, 16, ap_ctrl_hs, pointwise_conv_1d_latency_cl.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.2, return value</column>
+<column name="ap_return_88">out, 16, ap_ctrl_hs, pointwise_conv_1d_latency_cl.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.2, return value</column>
+<column name="ap_return_89">out, 16, ap_ctrl_hs, pointwise_conv_1d_latency_cl.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.2, return value</column>
+<column name="ap_return_90">out, 16, ap_ctrl_hs, pointwise_conv_1d_latency_cl.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.2, return value</column>
+<column name="ap_return_91">out, 16, ap_ctrl_hs, pointwise_conv_1d_latency_cl.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.2, return value</column>
+<column name="ap_return_92">out, 16, ap_ctrl_hs, pointwise_conv_1d_latency_cl.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.2, return value</column>
+<column name="ap_return_93">out, 16, ap_ctrl_hs, pointwise_conv_1d_latency_cl.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.2, return value</column>
+<column name="ap_return_94">out, 16, ap_ctrl_hs, pointwise_conv_1d_latency_cl.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.2, return value</column>
+<column name="ap_return_95">out, 16, ap_ctrl_hs, pointwise_conv_1d_latency_cl.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.2, return value</column>
+<column name="ap_return_96">out, 16, ap_ctrl_hs, pointwise_conv_1d_latency_cl.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.2, return value</column>
+<column name="ap_return_97">out, 16, ap_ctrl_hs, pointwise_conv_1d_latency_cl.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.2, return value</column>
+<column name="ap_return_98">out, 16, ap_ctrl_hs, pointwise_conv_1d_latency_cl.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.2, return value</column>
+<column name="ap_return_99">out, 16, ap_ctrl_hs, pointwise_conv_1d_latency_cl.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.2, return value</column>
+<column name="ap_return_100">out, 16, ap_ctrl_hs, pointwise_conv_1d_latency_cl.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.2, return value</column>
+<column name="ap_return_101">out, 16, ap_ctrl_hs, pointwise_conv_1d_latency_cl.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.2, return value</column>
+<column name="ap_return_102">out, 16, ap_ctrl_hs, pointwise_conv_1d_latency_cl.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.2, return value</column>
+<column name="ap_return_103">out, 16, ap_ctrl_hs, pointwise_conv_1d_latency_cl.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.2, return value</column>
+<column name="ap_return_104">out, 16, ap_ctrl_hs, pointwise_conv_1d_latency_cl.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.2, return value</column>
+<column name="ap_return_105">out, 16, ap_ctrl_hs, pointwise_conv_1d_latency_cl.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.2, return value</column>
+<column name="ap_return_106">out, 16, ap_ctrl_hs, pointwise_conv_1d_latency_cl.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.2, return value</column>
+<column name="ap_return_107">out, 16, ap_ctrl_hs, pointwise_conv_1d_latency_cl.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.2, return value</column>
+<column name="ap_return_108">out, 16, ap_ctrl_hs, pointwise_conv_1d_latency_cl.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.2, return value</column>
+<column name="ap_return_109">out, 16, ap_ctrl_hs, pointwise_conv_1d_latency_cl.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.2, return value</column>
+<column name="ap_return_110">out, 16, ap_ctrl_hs, pointwise_conv_1d_latency_cl.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.2, return value</column>
+<column name="ap_return_111">out, 16, ap_ctrl_hs, pointwise_conv_1d_latency_cl.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.2, return value</column>
+<column name="ap_return_112">out, 16, ap_ctrl_hs, pointwise_conv_1d_latency_cl.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.2, return value</column>
+<column name="ap_return_113">out, 16, ap_ctrl_hs, pointwise_conv_1d_latency_cl.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.2, return value</column>
+<column name="ap_return_114">out, 16, ap_ctrl_hs, pointwise_conv_1d_latency_cl.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.2, return value</column>
+<column name="ap_return_115">out, 16, ap_ctrl_hs, pointwise_conv_1d_latency_cl.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.2, return value</column>
+<column name="ap_return_116">out, 16, ap_ctrl_hs, pointwise_conv_1d_latency_cl.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.2, return value</column>
+<column name="ap_return_117">out, 16, ap_ctrl_hs, pointwise_conv_1d_latency_cl.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.2, return value</column>
+<column name="ap_return_118">out, 16, ap_ctrl_hs, pointwise_conv_1d_latency_cl.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.2, return value</column>
+<column name="ap_return_119">out, 16, ap_ctrl_hs, pointwise_conv_1d_latency_cl.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.2, return value</column>
+<column name="ap_return_120">out, 16, ap_ctrl_hs, pointwise_conv_1d_latency_cl.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.2, return value</column>
+<column name="ap_return_121">out, 16, ap_ctrl_hs, pointwise_conv_1d_latency_cl.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.2, return value</column>
+<column name="ap_return_122">out, 16, ap_ctrl_hs, pointwise_conv_1d_latency_cl.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.2, return value</column>
+<column name="ap_return_123">out, 16, ap_ctrl_hs, pointwise_conv_1d_latency_cl.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.2, return value</column>
+<column name="ap_return_124">out, 16, ap_ctrl_hs, pointwise_conv_1d_latency_cl.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.2, return value</column>
+<column name="ap_return_125">out, 16, ap_ctrl_hs, pointwise_conv_1d_latency_cl.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.2, return value</column>
+<column name="ap_return_126">out, 16, ap_ctrl_hs, pointwise_conv_1d_latency_cl.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.2, return value</column>
+<column name="ap_return_127">out, 16, ap_ctrl_hs, pointwise_conv_1d_latency_cl.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.2, return value</column>
+<column name="p_read">in, 12, ap_none, p_read, scalar</column>
+<column name="p_read1">in, 12, ap_none, p_read1, scalar</column>
+<column name="p_read2">in, 12, ap_none, p_read2, scalar</column>
+<column name="p_read3">in, 12, ap_none, p_read3, scalar</column>
+<column name="p_read4">in, 12, ap_none, p_read4, scalar</column>
+<column name="p_read5">in, 12, ap_none, p_read5, scalar</column>
+<column name="p_read6">in, 12, ap_none, p_read6, scalar</column>
+<column name="p_read7">in, 12, ap_none, p_read7, scalar</column>
+<column name="p_read8">in, 12, ap_none, p_read8, scalar</column>
+<column name="p_read9">in, 12, ap_none, p_read9, scalar</column>
+<column name="p_read10">in, 12, ap_none, p_read10, scalar</column>
+<column name="p_read11">in, 12, ap_none, p_read11, scalar</column>
+</table>
+</item>
+</section>
+</profile>
