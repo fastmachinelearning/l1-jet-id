@@ -1,4 +1,7 @@
 # l1-jet-id
+
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.10553804.svg)](https://doi.org/10.5281/zenodo.10553804)
+
 Code for Level-1 jet tagging 
 
 ## Data
