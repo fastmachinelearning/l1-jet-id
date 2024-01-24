@@ -1,8 +1,8 @@
 import numpy as np
 import hls4ml
-from hls4ml.model.attributes import Attribute
+from hls4ml.model.attributes import Attribute, TypeAttribute
 
-from .node_edge_projection import NodeEdgeProjection
+from node_edge_projection import NodeEdgeProjection
 
 # hls4ml layer implementation
 class HLSNodeEdgeProjection(hls4ml.model.layers.Layer):
@@ -16,7 +16,7 @@ class HLSNodeEdgeProjection(hls4ml.model.layers.Layer):
         Attribute("node_to_edge", value_type=bool, default=True),
         Attribute("in_width"),
         Attribute("out_width"),
-        TypeAttribute('accum'),
+        TypeAttribute('accum')
     ]
 
     def initialize(self):
