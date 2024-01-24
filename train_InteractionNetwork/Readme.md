@@ -26,6 +26,16 @@ or using command:
 python test_kfold.py -nmax 8 -mdir [DIR of models]
 ```
 
+# syntheiss
+
+```bash
+python synthesize.py -C --model model_QInteractionNetwork_NodeEdgeProj_Conv1D_nconst_32_nbits_8 -o SYN_RESULT_PI_NET_n32
+python synthesize.py -C --model model_QInteractionNetwork_NodeEdgeProj_Conv1D_nconst_16_nbits_8 -o SYN_RESULT_PI_NET_n16
+python synthesize.py -C --model model_QInteractionNetwork_NodeEdgeProj_Conv1D_nconst_8_nbits_8 -o SYN_RESULT_PI_NET_n8
+```
+add -B for build
+
+
 
 # non kfolding training
 
