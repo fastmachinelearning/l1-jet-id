@@ -13,6 +13,7 @@ from tensorflow.keras.layers import (
     Flatten,
     BatchNormalization,
     Activation,
+    GlobalAveragePooling1D,
 )
 from tensorflow.keras.optimizers import Adam
 from qkeras import QActivation, QDense, QConv1D, QConv2D, quantized_bits, ternary
@@ -154,7 +155,7 @@ for i in range (kfolds_loop):
     scale_n = args.SN  # multiplicative factor for # hidden neurons in Nodes MLP
 
 
-    scale_g = float(args.SG/(nmax*Do))/(nmax*Do)
+    scale_g = float(args.SG/(Do))/(nmax*Do)
     NL = args.NL
 
     # Interaction Network model parameters
@@ -293,7 +294,12 @@ for i in range (kfolds_loop):
     #  Graph classification MLP
     
     # Flatten input for the Graph classifier MLP
-    inp_g = Flatten()(out_n)
+    # inp_g = Flatten()(out_n)
+
+    # Invariant operation
+    out_n = QActivation(quantized_bits(bits=12, integer=3, symmetric=0, keep_negative=1))(out_n)
+    inp_g = GlobalAveragePooling1D(name="pi_gp")(out_n)
+
     
     # Define Graph classifier MLP  layers
     nhidden_g = int((Do * N) * scale_g)  # Number of nodes in graph MLP hidden layer
@@ -366,7 +372,7 @@ for i in range (kfolds_loop):
         print(non_trainable_count)
 
         if(args.hs==1):
-            outputdir = "nconst{}_nbits{}_De{}_Do{}_NL{}_SE{}_SN{}_SG{}_batch{}_acc{}_P{}_Seed{}_PRMT{}_KfoldHS_{}".format(
+            outputdir = "nconst{}_nbits{}_De{}_Do{}_NL{}_SE{}_SN{}_SG{}_batch{}_acc{}_P{}_Seed{}_PRMT{}_KfoldHS_pi_{}".format(
                 nmax,
                 nbits,
                 De,
@@ -383,7 +389,7 @@ for i in range (kfolds_loop):
                 time.strftime("%Y%m%d-%H%M%S"),
             )
         else:
-            outputdir = "nconst{}_nbits{}_De{}_Do{}_NL{}_SE{}_SN{}_SG{}_batch{}_acc{}_P{}_Seed{}_PRMT{}_KfoldAll_{}".format(
+            outputdir = "nconst{}_nbits{}_De{}_Do{}_NL{}_SE{}_SN{}_SG{}_batch{}_acc{}_P{}_Seed{}_PRMT{}_KfoldAll_pi_{}".format(
                 nmax,
                 nbits,
                 De,
