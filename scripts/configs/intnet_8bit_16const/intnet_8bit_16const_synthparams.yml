@@ -1,0 +1,37 @@
+---
+Model:
+  Strategy: "Latency"
+
+LayerName:
+  input_layer:
+    Precision: "ap_fixed<12, 4, AP_RND, AP_SAT>"
+  prj_effects:
+    Precision: "ap_fixed<16, 6>"
+  concat_obj:
+    Precision: "ap_fixed<16, 6, AP_RND, AP_SAT>"
+  effects1:
+    ParallelizationFactor: 1
+    ReuseFactor: 4
+    Strategy: "Latency"
+    ConvImplementation: "Pointwise"
+  effects2:
+    ParallelizationFactor: 1
+    ReuseFactor: 4
+    Strategy: "Latency"
+    ConvImplementation: "Pointwise"
+  objects1:
+    ParallelizationFactor: 1
+    ReuseFactor: 4
+    Strategy: "Latency"
+    ConvImplementation: "Pointwise"
+  objects2:
+    ParallelizationFactor: 1
+    ReuseFactor: 4
+    Strategy: "Latency"
+    ConvImplementation: "Pointwise"
+  objects3:
+    ParallelizationFactor: 1
+    ReuseFactor: 4
+    Strategy: "Latency"
+    ConvImplementation: "Pointwise"
+

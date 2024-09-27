@@ -1,8 +1,0 @@
-# Running the data preparation template.
-python prepare_data.py [path_to_data] [output_path] --min_pt [minimum_pt_data_can_have] --max_constituents [max_constituents_any_jet_can_have]
-
-# Running the data preparation with basic settings on the training data. The data in ../../ki_data/train should be the train data from https://zenodo.org/record/3602260#.YnT0xZpBz0o.
-python prepare_data.py ../../ki_data/zenodo/train/ ../../ki_data/jets_8constituents_minpt2GeV_train --min_pt 2 --max_constituents 8
-
-# Running the data normalisation with kfolding. The standardisation is robust normalisation. The command below produces 10 kfolds.
-python equalise_normalise.py --x_data_path_train ../../ki_data/jets_8constituents_minpt2GeV_train/x_jet_images_c8_minpt2.0.npy --x_data_path_test ../../ki_data/jets_8constituents_minpt2GeV_test/x_jet_images_c8_minpt2.0.npy --y_data_path_train ../../ki_data/jets_8constituents_minpt2GeV_train/y_jet_images_c8_minpt2.0.npy --y_data_path_test ../../ki_data/jets_8constituents_minpt2GeV_test/y_jet_images_c8_minpt2.0.npy --feats ptetaphi --output_dir ../../ki_data/jets_8constituents_ptetaphi_robust_fast/ --norm robust_fast --shuffle_seed 42 --kfolds 5

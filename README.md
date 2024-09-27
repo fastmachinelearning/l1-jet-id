@@ -1,31 +1,57 @@
-# l1-jet-id
+[![Email Badge](https://img.shields.io/badge/blah-podagiu%40ethz.ch-blue?style=flat-square&logo=minutemailer&logoColor=white&label=%20&labelColor=grey)](mailto:podagiu@ethz.ch)
+[![Zenodo Badge](https://img.shields.io/badge/blah-10.5281%2Fzenodo.10553804-blue?style=flat-square&label=Zenodo&labelColor=grey)](https://zenodo.org/records/10553805)
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.10553804.svg)](https://doi.org/10.5281/zenodo.10553804)
+# Ultrafast Jet Classification using Geometric Learning for the HL-LHC
 
-Code for Level-1 jet tagging 
+Code repository corresponding to the [Ultrafast Jet Classification at the HL-LHC](https://arxiv.org/abs/2402.01876) paper.
 
-## Data
-Raw data: https://zenodo.org/record/3602260#.YnT0xZpBz0o
+Three machine learning models are used to perform jet origin classification. 
+These models are optimized for deployment on a field-programmable gate array device. 
+In this context, we demonstrate how latency and resource consumption scale with the input size and choice of algorithm. 
+Through quantization-aware training and efficient synthetization for a specific field programmable gate array, we show that O(100) ns inference of geometric learning architectures such as Deep Sets and Interaction Networks is feasible at a relatively low computational resource cost.
 
-Kfolded data (k=10) with each consituent having transverse momentum larger than 2 GeV (pT > 2 GeV): [https://cernbox.cern.ch/s/L714Jx0ENCg8uTd](https://cernbox.cern.ch/s/L714Jx0ENCg8uTd)
-
-The 5 jet classes have equal representation in *each* kfold. The jets in every kfold are shuffled using different seeds. Moreover, the constituents of each jet are shuffled using a different seed.
-
-For robust normalisation data, the parameters are:
+## Installation
+The main dependencies can be installed using `conda` by running the following command in the terminal while in this repository's directory
 ```
-x_median: [13.901342868804932, 0.0, 0.0]
-interquantile_range: [119.6879810333252, 0.27309816256165514, 0.27362077757716186]
+conda env create -f fast_jetclass.yml
 ```
-## K-Folding 
-Consider the 5 folds (k=5) and label them: 1, 2, 3, 4, 5
+Alternatively, one can install the following packages manually:
+```
+  - python=3.10
+  - pyyaml
+  - numpy
+  - python-wget
+  - scikit-learn
+  - matplotlib
+  - pydot
+  - pydotplus
+  - tensorflow==2.14
+  - qkeras==0.9
+  - tensorflow-model-optimization==0.8.0
+```
 
-[1, 2, 3, 4] for training + [5] for validation <- use this one for hyperparameter optimization (HO)
+Then, after installing the dependencies, install this repository using
+```
+pip install .
+```
+while still in this repository's directory.
 
-[2, 3, 4, 5] for training + [1] for validation
+### Additional Dependencies for Synthesis
+The synthesis of the models for the FPGA are done using `hls4ml`.
+Hence, a particular version of this package is needed for running `*_synth` part of the scripts.
+To install this, execute `pip install .` inside the `hls4ml` directory of this repository.
+Additionally, for the profiling of the synthesized models, one also needs a subpackage of `hls4ml`, installed with
+```
+pip install hls4ml[profiling]
+conda install pydot
+conda install pydotplus
+```
+I honestly have not found a way of making the profiling package work without `conda`.
 
-[3, 4, 5, 1] for training + [2] for validation
+If you do not need profiling, omit the `--diagnose` flag when running the `*_synth` scripts.
+The profiling subpackage is a bit buggy, so if you encounter an error, contact the authors of this package; in the current version there are a couple of issues that are fixed by going into the source code of the profiling and changing a few lines.
+Contact me at the email address above if you need help with this.
 
-[4, 5, 1, 2] for training + [3] for validation
-
-[5, 1, 2, 3] for training + [4] for validation
-
+## Running the Scripts
+Examples of running the scripts, from training to synthesis, are given for each model in the README of the scripts directory in this repository.
+All the experiments executed for the corresponding paper of this code have their configuration in the `scripts/configs` folder.

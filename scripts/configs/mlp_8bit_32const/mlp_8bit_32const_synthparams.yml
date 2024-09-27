@@ -1,0 +1,22 @@
+---
+Model:
+  Strategy: "Latency"
+
+LayerName:
+  input_layer:
+    Precision: "ap_fixed<12, 4, AP_RND, AP_SAT>"
+  phi1:
+    ParallelizationFactor: 1
+    ReuseFactor: 8
+    Strategy: "Latency"
+    ConvImplementation: "Pointwise"
+  phi2:
+    ParallelizationFactor: 1
+    ReuseFactor: 8
+    Strategy: "Latency"
+    ConvImplementation: "Pointwise"
+  phi3:
+    ParallelizationFactor: 1
+    ReuseFactor: 8
+    Strategy: "Latency"
+    ConvImplementation: "Pointwise"

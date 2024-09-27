@@ -1,0 +1,38 @@
+---
+outdir: 'intnet_5bit_8const'
+data_hyperparams:
+  root: '../data/jetid'
+  nconst: 8
+  feats: "ptetaphi"
+  norm: "robust"
+  kfolds: 5
+  seed: 511
+
+model_type: "qintnet"
+model_hyperparams:
+  effects_layers: [12, 6]
+  objects_layers: [36, 18, 6]
+  classifier_layers: [170]
+  activ: "relu"
+  aggreg: "mean"
+  output_dim: 5
+  nbits: 5
+
+compilation_hyperparams:
+  optimizer: "adam"
+  optimizer_hps:
+    learning_rate: 0.0005
+  optimizer_callbacks:
+    early_stopping:
+      monitor: "val_categorical_accuracy"
+      patience: 40
+
+  loss: "softmax_with_crossentropy"
+  metrics: ["categorical_accuracy"]
+  early_stopping: 40
+
+training_hyperparams:
+  batch_size: 128
+  epochs: 1000
+  shuffle: True
+  verbose: 2

@@ -1,6 +1,0 @@
-#!/usr/bin/env bash
-
-nohup python -u deepsets_hyperopt --test_kfold 4 --gpu 0 > logs/synthable_32const_ptetaphi_0.out &
-nohup python -u deepsets_hyperopt --test_kfold 4 --gpu 1 > logs/synthable_32const_ptetaphi_1.out &
-nohup python -u deepsets_hyperopt --test_kfold 4 --gpu 2 > logs/synthable_32const_ptetaphi_2.out &
-nohup python -u deepsets_hyperopt --test_kfold 4 --gpu 3 > logs/synthable_32const_ptetaphi_3.out &

@@ -1,0 +1,18 @@
+#!/usr/bin/env python
+
+# Run the testing of the interaction network.
+import argparse
+import os
+
+from fast_jetclass.mlp.test import main
+
+
+parser = argparse.ArgumentParser(formatter_class=argparse.ArgumentDefaultsHelpFormatter)
+parser.add_argument("--root_dir", type=str, help="Model root directory path.")
+parser.add_argument("--gpu", type=str, default="0", help="GPU to run on.")
+parser.add_argument("--seed", type=int, default=123, help="Seed for shuffling const.")
+args = parser.parse_args()
+
+os.environ["CUDA_VISIBLE_DEVICES"] = args.gpu
+
+main(args)

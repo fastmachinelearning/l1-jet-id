@@ -1,0 +1,16 @@
+*.pyc
+_version.py
+__pycache__
+build/
+dist/
+sdist/
+*.egg-info/
+vivado_prj
+.vscode
+my-hls-test
+*.tar.gz
+docs/_build
+docs/autodoc/*
+hls4mlprj_*
+*~
+*.ipynb_checkpoints/

@@ -1,7 +1,0 @@
-#!/usr/bin/env bash
-
-nohup python -u deepsets_train --test_kfold 0 --gpu 0 --nbits 8 --outdir deepsinv_synthable_8bits_32const_ptetaphi_kfolds/kfold_0 > ./logs/deepsinv_synthable_8bits_32const_ptetaphi_kfold_0 &
-nohup python -u deepsets_train --test_kfold 1 --gpu 1 --nbits 8 --outdir deepsinv_synthable_8bits_32const_ptetaphi_kfolds/kfold_1 > ./logs/deepsinv_synthable_8bits_32const_ptetaphi_kfold_1 &
-nohup python -u deepsets_train --test_kfold 2 --gpu 2 --nbits 8 --outdir deepsinv_synthable_8bits_32const_ptetaphi_kfolds/kfold_2 > ./logs/deepsinv_synthable_8bits_32const_ptetaphi_kfold_2 &
-nohup python -u deepsets_train --test_kfold 3 --gpu 3 --nbits 8 --outdir deepsinv_synthable_8bits_32const_ptetaphi_kfolds/kfold_3 > ./logs/deepsinv_synthable_8bits_32const_ptetaphi_kfold_3 &
-nohup python -u deepsets_train --test_kfold 4 --gpu 2 --nbits 8 --outdir deepsinv_synthable_8bits_32const_ptetaphi_kfolds/kfold_4 > ./logs/deepsinv_synthable_8bits_32const_ptetaphi_kfold_4 &
