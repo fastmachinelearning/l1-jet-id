@@ -1,3 +1,0 @@
-[submodule "example-models"]
-	path = example-models
-	url = https://github.com/hls-fpga-machine-learning/example-models.git
