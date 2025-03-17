@@ -1,0 +1,19 @@
+name: fast_jetclass
+
+channels:
+  - conda-forge
+  - defaults
+
+dependencies:
+  - python=3.10
+  - pyyaml=6.*
+  - numpy=2.1.*
+  - python-wget=3.2
+  - scikit-learn=1.6.*
+  - matplotlib=3.10.*
+  - pip
+
+  - pip:
+    - tensorflow[and-cuda]==2.14
+    - tensorflow-model-optimization==0.8.0
+    - qkeras==0.9
