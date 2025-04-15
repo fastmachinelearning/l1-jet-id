@@ -16,22 +16,10 @@ Through quantization-aware training and efficient synthetization for a specific 
 ## Installation
 The main dependencies can be installed using `conda` by running the following command in the terminal while in this repository's directory
 ```
-conda env create -f fast_jetclass.yml
+conda env create -f environment.yml
 ```
-Alternatively, one can install the following packages manually:
-```
-  - python=3.10
-  - pyyaml
-  - numpy
-  - python-wget
-  - scikit-learn
-  - matplotlib
-  - pydot
-  - pydotplus
-  - tensorflow==2.14
-  - qkeras==0.9
-  - tensorflow-model-optimization==0.8.0
-```
+Alternatively, install the packages found in environment.yml manually.
+
 
 Then, after installing the dependencies, install this repository using
 ```
@@ -43,6 +31,7 @@ while still in this repository's directory.
 The synthesis of the models for the FPGA are done using `hls4ml`.
 Hence, a particular version of this package is needed for running `*_synth` part of the scripts.
 To install this, execute `pip install .` inside the `hls4ml` directory of this repository.
+
 Additionally, for the profiling of the synthesized models, one also needs a subpackage of `hls4ml`, installed with
 ```
 pip install hls4ml[profiling]
