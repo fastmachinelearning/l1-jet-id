@@ -137,7 +137,7 @@ def intnet_synth(
         kernel_quantizer=quant,
         bias_quantizer=quant,
         name=f"effects{1}",
-    )(intnet_input)
+    )(input_effects)
     x = qkeras.QActivation(activ)(x)
     for i, layer in enumerate(effects_layers[1:]):
         x = qkeras.QConv1D(
