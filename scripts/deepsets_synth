@@ -9,7 +9,7 @@ from fast_jetclass.deepsets.synthesize import main
 
 
 parser = argparse.ArgumentParser(formatter_class=argparse.ArgumentDefaultsHelpFormatter)
-parser.add_argument("--config_file", type=str, help="HLS4ML synthesis config.")
+parser.add_argument("--config", type=str, help="HLS4ML synthesis config.")
 parser.add_argument("--model_dir", type=str, help="Directory with model to synth.")
 parser.add_argument('--diagnose', action=argparse.BooleanOptionalAction)
 parser.add_argument("--gpu", type=str, default="0")
