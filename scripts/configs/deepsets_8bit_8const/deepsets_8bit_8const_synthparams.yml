@@ -9,14 +9,11 @@ LayerName:
     ParallelizationFactor: 1
     ReuseFactor: 2
     Strategy: "Latency"
-    ConvImplementation: "Pointwise"
   phi2:
     ParallelizationFactor: 1
     ReuseFactor: 2
     Strategy: "Latency"
-    ConvImplementation: "Pointwise"
   phi3:
     ParallelizationFactor: 1
     ReuseFactor: 2
     Strategy: "Latency"
-    ConvImplementation: "Pointwise"

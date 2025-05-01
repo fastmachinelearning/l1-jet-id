@@ -43,7 +43,11 @@ def main(args, synth_config: dict):
     model = import_model(args.model_dir, hyperparams)
 
     print(tcols.OKGREEN + "\nCONFIGURING SYNTHESIS\n" + tcols.ENDC)
-    hls4ml_config = hls4ml.utils.config_from_keras_model(model, granularity="name")
+    hls4ml_config = hls4ml.utils.config_from_keras_model(
+        model,
+        granularity="name",
+        backend='Vitis'
+    )
     deep_dict_update(hls4ml_config, synth_config)
 
     model_activations = get_model_activations(model)
@@ -67,6 +71,7 @@ def main(args, synth_config: dict):
         output_dir=synthesis_dir,
         part="xcvu13p-flga2577-2-e",
         io_type="io_parallel",
+        backend='Vitis'
     )
 
     hls_model.compile()
